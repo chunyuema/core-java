@@ -7,8 +7,10 @@ public class Main {
         System.out.println(ANSI_PURPLE + "Hi from main thread!");
         // create another thread
         Thread anotherThread = new AnotherThread();
+        anotherThread.setName(" ==Another Thread== ");
         // this runs the new thread we created: we can only start it once
         anotherThread.start();
+//        anotherThread.run();
 
         // this gives: java.lang.IllegalThreadStateException
         // anotherThread.start();
