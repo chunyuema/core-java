@@ -5,6 +5,10 @@ public class Countdown {
     // which all the threads would have the access => race condition
     // private int i;
 
+    // it would work, with synchronization
+    private int i;
+    // synchronize the whole method:
+    // public synchronized void doCountDown()
     public void doCountDown(){
         String color;
         switch(Thread.currentThread().getName()){
@@ -19,8 +23,15 @@ public class Countdown {
         }
 
         // declaring the int i here will force the i to be stored on the stack
-        for (int i = 10; i>0; i--){
-            System.out.println(color + Thread.currentThread().getName() + ": i= " + i);
+        // for (i = 10; i>0; i--){
+        //     System.out.println(color + Thread.currentThread().getName() + ": i= " + i);
+        // }
+
+        // synchronize the code block with object all the threads would share
+        synchronized (this) {
+            for (i=10; i>0; i--){
+                System.out.println(color + Thread.currentThread().getName() + ": i= " + i);
+            }
         }
     }
 }
