@@ -10,7 +10,7 @@ public class Main {
         anotherThread.setName(" ==Another Thread== ");
         // this runs the new thread we created: we can only start it once
         anotherThread.start();
-//        anotherThread.run();
+        // anotherThread.run();
 
         // this gives: java.lang.IllegalThreadStateException
         // anotherThread.start();
@@ -28,11 +28,20 @@ public class Main {
             @Override
             public void run() {
                 System.out.println(ANSI_CYAN + "Hello from anonymous runnable thread");
+                try {
+                    anotherThread.join(5000);
+                    System.out.println(ANSI_CYAN + "Another thread is terminated or timedout, I am awake to do more" +
+                            " stuff");
+                } catch (InterruptedException e){
+                    System.out.println(ANSI_CYAN + "Sorry I cannot wait!");
+                }
+
             }
         });
 
         myNewRunnable.start();
         myRunnable.start();
+        // anotherThread.interrupt();
         System.out.println(ANSI_PURPLE + "Hello again from the main thread");
     }
 }
