@@ -42,8 +42,12 @@ class MyProvider implements Runnable {
             try {
                 System.out.println(color + "Adding... " + num);
                 bufferLock.lock();
-                buffer.add(num);
-                bufferLock.unlock();
+                try {
+                    // include the critical code block here
+                    buffer.add(num);
+                } finally {
+                    bufferLock.unlock();
+                }
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
                 System.out.println("Producer interrupted");
@@ -52,9 +56,12 @@ class MyProvider implements Runnable {
         System.out.println(color + "Adding EOF and exiting...");
         // acquire the lock
         bufferLock.lock();
-        buffer.add("EOF");
-        // manually release the lock
-        bufferLock.unlock();
+        try {
+            buffer.add("EOF");
+        } finally {
+            // manually release the lock
+            bufferLock.unlock();
+        }
     }
 }
 
@@ -72,20 +79,22 @@ class MyConsumer implements Runnable {
         while(true){
             // acquire the lock
             bufferLock.lock();
-            if (buffer.isEmpty()){
+            // include the critical code block in the try block
+            try {
+                if (buffer.isEmpty()){
+                    continue;
+                }
+                // do not remove the EOF since if it is removed
+                // all the other consumers will run indefinitely
+                if (buffer.get(0).equals(EOF)){
+                    System.out.println(color + "Exiting");
+                    break;
+                } else {
+                    System.out.println(color + "Removed " + buffer.remove(0));
+                }
+            } finally {
                 bufferLock.unlock();
-                continue;
             }
-            // do not remove the EOF since if it is removed
-            // all the other consumers will run indefinitely
-            if (buffer.get(0).equals(EOF)){
-                System.out.println(color + "Exiting");
-                bufferLock.unlock();
-                break;
-            } else {
-                System.out.println(color + "Removed " + buffer.remove(0));
-            }
-            bufferLock.unlock();
         }
     }
 }
