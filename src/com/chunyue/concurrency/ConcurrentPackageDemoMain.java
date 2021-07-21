@@ -79,6 +79,8 @@ class MyConsumer implements Runnable {
         while(true){
             // acquire the lock
             bufferLock.lock();
+            // can use if(bufferLock.tryLock()){...} to test if we can get the lock
+
             // include the critical code block in the try block
             try {
                 if (buffer.isEmpty()){
