@@ -16,7 +16,7 @@ public class ConcurrentPackageDemoMain {
         ReentrantLock bufferLock = new ReentrantLock();
 
         // Using the executorService when there is a large number of threads
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         MyProvider provider = new MyProvider(buffer, ThreadColor.ANSI_RED, bufferLock);
         MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
@@ -33,6 +33,24 @@ public class ConcurrentPackageDemoMain {
         executorService.execute(consumer1);
         executorService.execute(consumer2);
         // need to manually shutdown the executorService
+
+
+        Future<String> future = executorService.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println(ThreadColor.ANSI_PURPLE + "I am being printed from the callable class");
+                return "This is the callable result";
+            }
+        });
+
+        // This will not be run if we only pass 3 into executorService
+        try {
+            System.out.println(future.get());
+        } catch (ExecutionException e) {
+            System.out.println("Something went wrong");
+        } catch (InterruptedException e) {
+            System.out.println("Thread running the task was interrupted");
+        }
 
         executorService.shutdown();
     }
