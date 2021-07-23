@@ -3,6 +3,7 @@ package com.chunyue.concurrency;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.chunyue.concurrency.ConcurrentPackageDemoMain.EOF;
@@ -13,13 +14,27 @@ public class ConcurrentPackageDemoMain {
         // ArrayList is not thread safe, will encounter thread interference
         List<String> buffer = new ArrayList<>();
         ReentrantLock bufferLock = new ReentrantLock();
+
+        // Using the executorService when there is a large number of threads
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+
         MyProvider provider = new MyProvider(buffer, ThreadColor.ANSI_RED, bufferLock);
         MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
         MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_GREEN, bufferLock);
 
-        new Thread(provider).start();
-        new Thread(consumer1).start();
-        new Thread(consumer2).start();
+
+        // without using the executor service
+        // new Thread(provider).start();
+        // new Thread(consumer1).start();
+        // new Thread(consumer2).start();
+
+        // using the executorService
+        executorService.execute(provider);
+        executorService.execute(consumer1);
+        executorService.execute(consumer2);
+        // need to manually shutdown the executorService
+
+        executorService.shutdown();
     }
 }
 
