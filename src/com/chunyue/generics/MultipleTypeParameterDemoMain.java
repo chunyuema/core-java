@@ -8,6 +8,9 @@ public class MultipleTypeParameterDemoMain {
         Blue blue = new Blue();
         Color color = new Color(red, green, blue);
         System.out.println(color.blue.getClass());
+
+        Color color2 = new Color();
+        System.out.println(color2.blue);
     }
 }
 
@@ -27,6 +30,7 @@ class Color<R,G,B> {
     }
 }
 
+// These are the type arguments
 class Red{}
 class Green{}
 class Blue{}
