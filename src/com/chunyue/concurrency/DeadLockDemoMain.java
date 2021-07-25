@@ -32,20 +32,20 @@ public class DeadLockDemoMain {
 
     private static class Thread2 extends Thread {
         public void run(){
-            synchronized (lock2){
-                System.out.println("Thread 2: has lock2");
+            synchronized (lock1){
+                System.out.println("Thread 2: has lock1");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e){
 
                 }
-                System.out.println("Thread 2: waiting for lock1");
-                synchronized (lock1){
-                    System.out.println("Thread 2: has lock2 and lock1");
+                System.out.println("Thread 2: waiting for lock2");
+                synchronized (lock2){
+                    System.out.println("Thread 2: has lock1 and lock2");
                 }
-                System.out.println("Thread 2: released lock 1");
+                System.out.println("Thread 2: released lock 2");
             }
-            System.out.println("Thread 2: released lock 2. Exiting...");
+            System.out.println("Thread 2: released lock 1. Exiting...");
         }
     }
 }
