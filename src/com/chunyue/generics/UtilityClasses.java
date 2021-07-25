@@ -13,7 +13,7 @@ class Bartender{
 
 // ======== intro to generics demo utility classes =====
 interface Liquid{}
-class Glass<T extends Liquid>{
+class Glass<T>{
     public T liquid;
 }
 
@@ -21,10 +21,11 @@ class Glass<T extends Liquid>{
 class JuiceGlass<T extends Juice & Liquid>{
     public T liquid;
 }
+// WineGlass<Juice> is a relation with Glass<Juice>
 
-class Juice {}
+class WineGlass<T> extends Glass<T>{}
+class Juice implements Liquid{}
 class OrangeJuice extends Juice implements Liquid{};
-class AppleJuice extends Juice implements Liquid{}
 class Water implements Liquid{}
 
 // since cake and oil do not extend juice and implement liquid
