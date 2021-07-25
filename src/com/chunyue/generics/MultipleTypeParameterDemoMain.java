@@ -9,7 +9,8 @@ public class MultipleTypeParameterDemoMain {
         Color color = new Color(red, green, blue);
         System.out.println(color.blue.getClass());
 
-        Color color2 = new Color();
+        // The following is okay due to Java's type inference
+        Color<Red, Green, Blue>color2 = new Color<>();
         System.out.println(color2.blue);
     }
 }
