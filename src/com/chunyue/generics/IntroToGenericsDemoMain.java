@@ -22,22 +22,3 @@ public class IntroToGenericsDemoMain {
 
 }
 
-interface Liquid{}
-class Glass<T extends Liquid>{
-    public T liquid;
-}
-
-// bound the types allowed to instantiate the glass with to only Juice
-class JuiceGlass<T extends Juice & Liquid>{
-    public T liquid;
-}
-
-class Juice {}
-class OrangeJuice extends Juice implements Liquid{};
-class AppleJuice extends Juice implements Liquid{}
-class Water implements Liquid{}
-
-// since cake and oil do not extend juice and implement liquid
-// they cannot be used as a valid type to instantiate glass or juiceglass
-class Cake{}
-class Oil{}

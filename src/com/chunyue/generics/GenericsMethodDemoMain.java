@@ -12,8 +12,4 @@ public class GenericsMethodDemoMain {
     }
 }
 
-class Bartender{
-    public<T1, T2> void mix(T1 juice, T2 water){
-        System.out.println("Mixing right now!");
-    }
-}
+
