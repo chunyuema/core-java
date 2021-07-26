@@ -1,25 +1,25 @@
 package com.chunyue.collections;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 public class ListInterfaceDemoMain {
     public static void main(String[] args) {
-        // List interface extends the Collection interface
-        List<Integer> values = new ArrayList<>();
-        values.add(33);
-        values.add(44);
-        values.add(55);
-        // Not possible with collection interface
-        values.add(2, 567);
-        System.out.println(values);
-        // Not possible is values is a Collection
-        // since index does not exist for Collection
-        Collections.sort(values);
-        System.out.println(values);
+        // Three different implementations of list interface
+        List<Integer> v1 = new ArrayList<>();
+        v1.add(2);
+        System.out.println(v1.size());
+        List<Integer> v2 = new Vector<>();
+        v2.add(3);
+        System.out.println(v2.size());
+        // the following only works if you do Vector<Integer> = new Vector<Integer>
+        // System.out.println(v2.capacity());
 
-        // Stream API
-        values.forEach(System.out::println);
+        List<Integer> v3 = new LinkedList<>();
+        v3.add(4);
+        System.out.println(v3.size());
     }
+
 }
