@@ -1,4 +1,4 @@
-package com.chunyue.collections.list;
+package com.chunyue.collection.list;
 
 import java.util.ArrayList;
 import java.util.Vector;

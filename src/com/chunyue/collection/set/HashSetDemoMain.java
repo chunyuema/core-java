@@ -1,4 +1,4 @@
-package com.chunyue.collections.set;
+package com.chunyue.collection.set;
 
 import java.util.HashSet;
 import java.util.Set;

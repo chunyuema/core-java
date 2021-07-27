@@ -1,6 +1,6 @@
-package com.chunyue.collections.list;
+package com.chunyue.collection.list;
 
-import com.chunyue.collections.comparator.LastDigitComparator;
+import com.chunyue.collection.comparator.LastDigitComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
