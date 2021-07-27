@@ -1,5 +1,7 @@
 package com.chunyue.collections;
 
+import com.chunyue.collections.comparator.LastDigitComparator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

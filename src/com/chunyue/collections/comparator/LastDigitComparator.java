@@ -1,4 +1,4 @@
-package com.chunyue.collections;
+package com.chunyue.collections.comparator;
 
 import java.util.Comparator;
 
