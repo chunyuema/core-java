@@ -1,4 +1,4 @@
-package com.chunyue.collections;
+package com.chunyue.collections.list;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
