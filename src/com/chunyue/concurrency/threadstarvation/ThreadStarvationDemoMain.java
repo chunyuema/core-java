@@ -1,9 +1,19 @@
-package com.chunyue.concurrency;
+package com.chunyue.concurrency.threadstarvation;
+
+import com.chunyue.concurrency.ThreadColor;
+
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ThreadStarvationDemoMain {
 
     // all the thread will be competing for this lock
-    private static Object lock = new Object();
+    // private static Object lock = new Object();
+
+    // use a re-entrant lock set up the fair lock: first come first serve
+    // might slow down the program when there are many threads
+    // whether to use a fair lock depends on the tasks that the threads are performing
+    // it might be okay to have the thread waiting instead of using a fairlock
+    private static ReentrantLock lock = new ReentrantLock(true);
 
     public static void main(String[] args) {
         Thread t1 = new Thread(new Worker(ThreadColor.ANSI_RED), "Priority 10");
@@ -39,12 +49,19 @@ public class ThreadStarvationDemoMain {
         @Override
         public void run(){
             for (int i = 0; i<100; i++){
-                synchronized (lock) {
+                lock.lock();
+                try {
                     System.out.format(threadColor + "%s: runCount = %d\n", Thread.currentThread().getName(),
                             runCount++);
-                    // execute critical section of code
+                } finally {
+                    lock.unlock();
+                }
+
+//                synchronized (lock) {
+//                    System.out.format(threadColor + "%s: runCount = %d\n", Thread.currentThread().getName(),
+//                            runCount++);
+//                    // execute critical section of code
                 }
             }
         }
-    }
 }
