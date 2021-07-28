@@ -25,5 +25,15 @@ public class HashMapDemoMain {
         // override what is already in the hashmap
         map.put("last name", "mama");
         System.out.println(map);
+
+        System.out.println(map.entrySet());
+
+        // HashTable V.S. HashMap
+        // hashtable is synchronized and slow, hashmap is not synchronized and fast
+        // hashmap is introduced in 1.2
+        // hashmap allows null keys but hashtable does not allow that
+
+        // LinkedHashMap: this maintains the insertion order of the elements
+        // TreeHashMap: this maintains the sorted version of the entries inserted
     }
 }
