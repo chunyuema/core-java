@@ -22,11 +22,17 @@ public class LambdaExpressionComparatorDemoMain {
             }
         });
         System.out.println(employeeList);
-        Employee bobby = new Employee("Bobby Ma", 10);
+        Employee bobby = new Employee("Bobby Ma", 16);
         employeeList.add(bobby);
         // use a lambda expression for quick creation of comparator
         Collections.sort(employeeList, (o1, o2) -> o1.getName().compareTo(o2.getName()));
         System.out.println(employeeList);
+
+        for(Employee employee: employeeList){
+            System.out.println(employee.getName());
+            // the employee from the lambda expression has access to the employee created for the enhanced forloop
+            new Thread(()-> System.out.println(employee.getAge())).start();
+        }
     }
 }
 
