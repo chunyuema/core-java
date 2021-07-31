@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
-import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class FunctionalInterfaceDemoMain {
@@ -27,14 +26,14 @@ public class FunctionalInterfaceDemoMain {
             System.out.println(employee.getAge());
         });
 
+        // original for loop for grabbing employees age over 20
         System.out.println("Empolyees over 20: ");
         System.out.println("===================");
-
-//        employeeList.forEach(employee -> {
-//            if (employee.getAge() > 20){
-//                System.out.println(employee.getName());
-//            }
-//        });
+        employeeList.forEach(employee -> {
+            if (employee.getAge() > 20){
+                System.out.println(employee.getName());
+            }
+        });
 
         // use predicate: the employee here is infered to have the Employee
         printEmployeesByAge(employeeList, "Employee over 20", employee -> employee.getAge() > 20);
@@ -47,19 +46,6 @@ public class FunctionalInterfaceDemoMain {
             }
         });
 
-        // create an integer predicate using lambda expression
-        IntPredicate greaterThan15 = i -> i > 15;
-        System.out.println(greaterThan15.test(10));
-        int a = 20;
-        // predicate can also be used repeatedly
-        System.out.println(greaterThan15.test(a-2));
-
-        // chain of predicates
-        IntPredicate lessThan100 = i -> i < 100;
-        int b = 77;
-        System.out.println(greaterThan15.and(lessThan100).test(b));
-        System.out.println(greaterThan15.and(lessThan100).test(b-99));
-
         // original method without lambda expressions
         employeeList.forEach(employee -> {
             String lastName = employee.getName().substring(employee.getName().indexOf(" ") + 1);
@@ -70,7 +56,6 @@ public class FunctionalInterfaceDemoMain {
         Function<Employee, String> getLastName = (Employee employee) ->{
             return employee.getName().substring(employee.getName().indexOf(" ") + 1);
         };
-
         Function<Employee, String> getFirstName = (Employee employee) -> {
             return employee.getName().substring(0, employee.getName().indexOf(" "));
         };
