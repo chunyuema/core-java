@@ -2,6 +2,8 @@ package com.chunyue.lamdaexpression;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.Function;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
@@ -57,6 +59,41 @@ public class FunctionalInterfaceDemoMain {
         int b = 77;
         System.out.println(greaterThan15.and(lessThan100).test(b));
         System.out.println(greaterThan15.and(lessThan100).test(b-99));
+
+        // original method without lambda expressions
+        employeeList.forEach(employee -> {
+            String lastName = employee.getName().substring(employee.getName().indexOf(" ") + 1);
+            System.out.println("Last name is: " + lastName);
+        });
+
+        // set up function interface <Argument Type, Return Type>
+        Function<Employee, String> getLastName = (Employee employee) ->{
+            return employee.getName().substring(employee.getName().indexOf(" ") + 1);
+        };
+
+        Function<Employee, String> getFirstName = (Employee employee) -> {
+            return employee.getName().substring(0, employee.getName().indexOf(" "));
+        };
+
+        // use apply to call the function on the object
+        String firstName = getFirstName.apply(employeeList.get(2));
+        String lastName = getLastName.apply(employeeList.get(2));
+        System.out.println(firstName + " " + lastName);
+
+        // randomly getting first and last name
+        Random random1 = new Random();
+        for (Employee employee: employeeList){
+            if (random1.nextBoolean()){
+                System.out.println(getName(getFirstName, employee));
+            } else {
+                System.out.println(getName(getLastName, employee));
+            }
+        }
+    }
+
+    // organize different lambda functions together
+    private static String getName(Function<Employee, String> getName, Employee employee){
+        return getName.apply(employee);
     }
 
     private static void printEmployeesByAge(List<Employee> employeeList, String ageText,
