@@ -2,6 +2,7 @@ package com.chunyue.lamdaexpression;
 
 import java.util.Random;
 import java.util.function.IntPredicate;
+import java.util.function.IntUnaryOperator;
 import java.util.function.Supplier;
 
 public class PredicateAndSupplierInterfaceDemoMain {
@@ -30,5 +31,9 @@ public class PredicateAndSupplierInterfaceDemoMain {
         for (int i=0; i<10; i++){
             System.out.println(randomSupplier.get());
         }
+
+        // int unary operator
+        IntUnaryOperator incBy5 = i -> i + 5;
+        System.out.println(incBy5.applyAsInt(10));
     }
 }
