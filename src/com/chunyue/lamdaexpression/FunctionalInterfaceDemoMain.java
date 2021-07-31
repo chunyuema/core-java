@@ -2,6 +2,7 @@ package com.chunyue.lamdaexpression;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class FunctionalInterfaceDemoMain {
@@ -33,10 +34,31 @@ public class FunctionalInterfaceDemoMain {
 //            }
 //        });
 
-        // use predicate
+        // use predicate: the employee here is infered to have the Employee
         printEmployeesByAge(employeeList, "Employee over 20", employee -> employee.getAge() > 20);
 
+        // use anonymous class to write predicate
+        printEmployeesByAge(employeeList, "Employee over 15", new Predicate<Employee>() {
+            @Override
+            public boolean test(Employee employee) {
+                return employee.getAge() > 15;
+            }
+        });
+
+        // create an integer predicate using lambda expression
+        IntPredicate greaterThan15 = i -> i > 15;
+        System.out.println(greaterThan15.test(10));
+        int a = 20;
+        // predicate can also be used repeatedly
+        System.out.println(greaterThan15.test(a-2));
+
+        // chain of predicates
+        IntPredicate lessThan100 = i -> i < 100;
+        int b = 77;
+        System.out.println(greaterThan15.and(lessThan100).test(b));
+        System.out.println(greaterThan15.and(lessThan100).test(b-99));
     }
+
     private static void printEmployeesByAge(List<Employee> employeeList, String ageText,
                                             Predicate<Employee> ageCondition){
         System.out.println(ageText);
