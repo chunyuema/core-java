@@ -7,7 +7,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class FunctionalInterfaceDemoMain {
+public class FunctionInterfaceDemoMain {
     public static void main(String[] args) {
         Employee chunyue = new Employee("Chunyue Ma", 22);
         Employee jack = new Employee("Jack Ma", 42);

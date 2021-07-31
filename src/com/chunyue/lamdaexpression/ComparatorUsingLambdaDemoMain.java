@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class LambdaExpressionComparatorDemoMain {
+public class ComparatorUsingLambdaDemoMain {
     public static void main(String[] args) {
         Employee chunyue = new Employee("Chunyue Ma", 22);
         Employee jack = new Employee("Jack Ma", 42);
