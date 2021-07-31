@@ -3,6 +3,7 @@ package com.chunyue.lamdaexpression;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -74,6 +75,20 @@ public class FunctionalInterfaceDemoMain {
                 System.out.println(getName(getLastName, employee));
             }
         }
+
+        // lambda function for getting the uppercase of the employee's name
+        Function<Employee, String> upperCase = employee -> employee.getName().toUpperCase();
+        Function<String, String> obtainFirstName= name -> name.substring(0, name.indexOf(" "));
+        // chaining functions together
+        Function chainedFunction = upperCase.andThen(obtainFirstName);
+        System.out.println(chainedFunction.apply(employeeList.get(0)));
+
+        // bifunction can accept two arguments
+        BiFunction<String, Employee, String> concatAge = (String name, Employee employee) -> {
+            return name.concat(" " + employee.getAge());
+        };
+        String upperName  = upperCase.apply(employeeList.get(0));
+        System.out.println(concatAge.apply(upperName, employeeList.get(0)));
     }
 
     // organize different lambda functions together
