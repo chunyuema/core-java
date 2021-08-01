@@ -3,6 +3,7 @@ package com.chunyue.lamdaexpression;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class LambdaStreamsDemoMain {
     public static void main(String[] args) {
@@ -26,10 +27,25 @@ public class LambdaStreamsDemoMain {
 
 
         // use streams to perform the same task
-        bingoNumbers.stream() //sets up the stream
+        bingoNumbers.stream() //sets up the stream containing all the items from bingoNumbers
+                // intermediate operations: return something to be passed on
                 .map(String::toUpperCase) // map the function to the argument
                 .filter(s->s.startsWith("G"))
                 .sorted()
-                .forEach(System.out::println);
+                // terminal operation: return void, nothing to pass on
+                .forEach(System.out::println); // we will get G64 instead of g64
+
+
+        // no changes to the original bingoNumbers
+        System.out.println(bingoNumbers);
+
+        Stream<String> ioNumberStream = Stream.of("I26", "I17", "I29", "O71");
+        Stream<String> inNumberStream = Stream.of("N40", "N36", "I26", "I17", "071", "I26");
+        Stream<String> concatStream = Stream.concat(ioNumberStream, inNumberStream);
+        System.out.println("------------------------------");
+        System.out.println(concatStream
+                .distinct()
+                .peek(System.out:: println) // need to use peek since it does not terminate the stream
+                .count());
     }
 }
