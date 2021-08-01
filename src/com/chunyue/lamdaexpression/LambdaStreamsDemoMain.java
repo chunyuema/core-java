@@ -3,6 +3,8 @@ package com.chunyue.lamdaexpression;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LambdaStreamsDemoMain {
@@ -25,7 +27,7 @@ public class LambdaStreamsDemoMain {
         gNumbers.sort((String s1, String s2) -> s1.compareTo(s2));
         System.out.println(gNumbers);
 
-
+        // ===============================================================================
         // use streams to perform the same task
         bingoNumbers.stream() //sets up the stream containing all the items from bingoNumbers
                 // intermediate operations: return something to be passed on
@@ -38,7 +40,27 @@ public class LambdaStreamsDemoMain {
 
         // no changes to the original bingoNumbers
         System.out.println(bingoNumbers);
+        // ===============================================================================
 
+        List<String> sortedGNumbers = bingoNumbers
+                .stream()
+                .map(String::toUpperCase) // map the function to the argument
+                .filter(s->s.startsWith("G"))
+                .sorted()
+                // another option of collecting the output and store them in a variable
+                .collect(Collectors.toList());
+        System.out.println(sortedGNumbers);
+
+        List<String> sortedGNumbers2 = bingoNumbers
+                .stream()
+                .map(String::toUpperCase) // map the function to the argument
+                .filter(s->s.startsWith("G"))
+                .sorted()
+                // specify the data structure for the collect
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        System.out.println(sortedGNumbers2);
+
+        // ===============================================================================
         Stream<String> ioNumberStream = Stream.of("I26", "I17", "I29", "O71");
         Stream<String> inNumberStream = Stream.of("N40", "N36", "I26", "I17", "071", "I26");
         Stream<String> concatStream = Stream.concat(ioNumberStream, inNumberStream);
@@ -48,7 +70,7 @@ public class LambdaStreamsDemoMain {
                 .peek(System.out:: println) // need to use peek since it does not terminate the stream
                 .count());
 
-
+        // ===============================================================================
         Employee chunyue = new Employee("Chunyue Ma", 23);
         Employee john = new Employee("John Ma", 24);
         Employee jane = new Employee("Jane Ma", 24);
@@ -69,5 +91,12 @@ public class LambdaStreamsDemoMain {
                 // flatten nested list
                 .flatMap(department -> department.getEmployees().stream())
                 .forEach(System.out::println);
+
+        Map<Integer, List<Employee>> groupByAge = departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                // group the employees with the same age
+                .collect(Collectors.groupingBy(employee -> employee.getAge()));
+        System.out.println(groupByAge);
+
     }
 }
