@@ -47,5 +47,27 @@ public class LambdaStreamsDemoMain {
                 .distinct()
                 .peek(System.out:: println) // need to use peek since it does not terminate the stream
                 .count());
+
+
+        Employee chunyue = new Employee("Chunyue Ma", 23);
+        Employee john = new Employee("John Ma", 24);
+        Employee jane = new Employee("Jane Ma", 24);
+        Employee alex = new Employee("Alex Ma", 33);
+
+        Department hr = new Department("HR");
+        hr.addEmployee(jane);
+        hr.addEmployee(john);
+        hr.addEmployee(alex);
+        Department swe = new Department("SWE");
+        swe.addEmployee(chunyue);
+
+        List<Department> departments = new ArrayList<>();
+        departments.add(hr);
+        departments.add(swe);
+
+        departments.stream()
+                // flatten nested list
+                .flatMap(department -> department.getEmployees().stream())
+                .forEach(System.out::println);
     }
 }
