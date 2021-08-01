@@ -98,10 +98,26 @@ public class LambdaStreamsDemoMain {
                 .collect(Collectors.groupingBy(employee -> employee.getAge()));
         System.out.println(groupByAge);
 
+        // ===============================================================================
         // use reduce to reduce a map into one element
         departments.stream()
                 .flatMap(department -> department.getEmployees().stream())
                 .reduce((e1, e2) -> e1.getAge() < e2.getAge() ? e1 : e2)
                 .ifPresent(System.out::println);
+
+        // ===============================================================================
+        // This is not evaluated at all since there is no terminal operations: lazy evaluation
+        Stream.of("ABC", "AC", "BAA", "CCC")
+                .filter(s->{
+                    System.out.println(s);
+                    return s.length() == 3;
+                });
+        // Only evalucate when there is a terminal operations
+        Stream.of("ABC", "AC", "BAA", "CCC")
+                .filter(s->{
+                    System.out.println(s);
+                    return s.length() == 3;
+                })
+                .count();
     }
 }
