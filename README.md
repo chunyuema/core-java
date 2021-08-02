@@ -1,5 +1,11 @@
 # Core Java Concepts
 
+## Java Collection Framework
+- Iterable Interface: root interface for all the collection classes. Collection interface extends the iterable 
+  interface
+- Collection Interface: the iterface that is implemented by all the classes in collection framework
+- List Interface: child interface of collection interface which inhibits list data structure
+  
 ## Java Concurrency
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
