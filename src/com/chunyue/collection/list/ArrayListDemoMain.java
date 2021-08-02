@@ -2,10 +2,7 @@ package com.chunyue.collection.list;
 
 import com.chunyue.collection.comparator.LastDigitComparator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class ArrayListDemoMain {
     public static void main(String[] args) {
@@ -17,6 +14,12 @@ public class ArrayListDemoMain {
         // Not possible with collection interface
         values.add(2, 567);
         System.out.println(values);
+
+        // Iterating through the array list
+        Iterator<Integer> itrator = values.iterator();
+        while (itrator.hasNext()){
+            System.out.println("The item is: " + itrator.next());
+        }
         // Not possible is values is a Collection
         // since index does not exist for Collection
         Collections.sort(values);
