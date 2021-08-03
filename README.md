@@ -1,10 +1,23 @@
 # Core Java Concepts
 
 ## Java Collection Framework
-- Iterable Interface: root interface for all the collection classes. Collection interface extends the iterable 
-  interface
-- Collection Interface: the iterface that is implemented by all the classes in collection framework
-- List Interface: child interface of collection interface which inhibits list data structure
+- Iterable Interface: root interface for all the collection classes
+- Collection Interface: interface extends Iterable; implemented by all the classes in collection 
+  framework
+- List Interface: interface extends Collection; inhibits list data structure
+    - ArrayList: implements List interface using a dynamic array
+    - LinkedList: implements List using a doubly linked list
+    - Vector: similar to ArrayList but synchronized
+        - Stack: a subclass of Vector
+- Queue Interface: interface extends Collection; list with first-in-first-out order
+    - PriorityQueue: class implements Queue; no null values
+    - Deque: interface which extends Queue; add and remove elements from both sides
+        - ArraryDeque: class implements Deque; faster than ArrayList and Stack
+- Set Interface: interface extends Collection; represents unordered set of elements; no duplicates
+    - HashSet: class implements Set; use hashtable for storage
+    - LinkedHashSet: class implements Set with linked list; maintain insertion order
+    - SortedSet: interface extends Set
+        - TreeSet: class implements Set with a tree; fast access and retreval of elements
   
 ## Java Concurrency
 - **DeadLock**: 
