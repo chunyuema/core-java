@@ -5,7 +5,8 @@ import java.util.LinkedList;
 
 public class LinkedListDemoMain {
     public static void main(String[] args) {
-        addToLinkedList();
+        // addToLinkedList();
+        removeFromLinkedList();
     }
 
     public static void addToLinkedList(){
@@ -37,5 +38,42 @@ public class LinkedListDemoMain {
         while(iterator.hasNext()){
             System.out.println("The item is: " + iterator.next());
         }
+    }
+
+    public static void removeFromLinkedList(){
+        LinkedList<String> names = new LinkedList<>();
+        names.add("Ravi");
+        names.add("Vijay");
+        names.add("Ajay");
+        names.add("Anuj");
+        names.add("Gaurav");
+        names.add("Harsh");
+        names.add("Virat");
+        names.add("Gaurav");
+        names.add("Harsh");
+        names.add("Amit");
+        names.add("Amit");
+        System.out.println("initial list: " +  names);
+        names.remove("Amit");
+        System.out.println("remove Amit: " + names);
+
+        LinkedList<String> names2 = new LinkedList<>();
+        names2.add("Virat");
+        names2.add("Amit");
+        names.removeAll(names2);
+        System.out.println("remove " + names2 + ": " + names);
+
+        names.removeFirst();
+        System.out.println("remove first element: " + names);
+        names.removeLast();
+        System.out.println("remove last element: " + names);
+
+        names.removeFirstOccurrence("Gaurav");
+        System.out.println("remove first occurrence of Gaurav: " + names);
+        names.removeLastOccurrence("Harsh");
+        System.out.println("remove last occurrence of Harsh: " + names);
+
+        names.clear();
+        System.out.println("clear everything: " + names);
     }
 }
