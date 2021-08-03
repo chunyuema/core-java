@@ -6,7 +6,8 @@ import java.util.LinkedList;
 public class LinkedListDemoMain {
     public static void main(String[] args) {
         // addToLinkedList();
-        removeFromLinkedList();
+        // removeFromLinkedList();
+        iterateLinkedList();
     }
 
     public static void addToLinkedList(){
@@ -75,5 +76,33 @@ public class LinkedListDemoMain {
 
         names.clear();
         System.out.println("clear everything: " + names);
+    }
+
+    public static void iterateLinkedList(){
+        LinkedList<Integer> numbers = new LinkedList<>();
+        numbers.add(9);
+        numbers.add(10);
+        numbers.add(11);
+        numbers.add(16);
+
+        // Forward Iteration
+        Iterator<Integer> iterator = numbers.iterator();
+        System.out.println("Forward Iteration");
+        while (iterator.hasNext()){
+            System.out.println("The number is: " + iterator.next());
+        }
+
+        Iterator<Integer> backIterator = numbers.descendingIterator();
+        System.out.println("Backwars Iterator");
+        while (backIterator.hasNext()){
+            System.out.println("The number is: " + backIterator.next());
+        }
+
+        System.out.println("Use for loop");
+        for (Integer i: numbers){
+            System.out.println("For loop number: " +  i);
+        }
+
+
     }
 }
