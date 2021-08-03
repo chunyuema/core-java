@@ -86,5 +86,52 @@ public class ArrayListDemoMain {
         System.out.println(values);
         values.removeAll(values2);
         System.out.println(values);
+
+        // ArrayList with objects
+        List<Book> bookList = new ArrayList<>();
+        Book b1 = new Book(1, "OOP", "CHUNYUE");
+        Book b2 = new Book(2, "Design Paradigm", "ALEX");
+        Book b3 = new Book(3, "Three Body Problem", "LCX");
+        bookList.add(b1);
+        bookList.add(b2);
+        bookList.add(b3);
+        System.out.println(bookList);
+        Collections.sort(bookList, (book1, book2) -> {
+            return (book1.getName().compareTo(book2.getName()));
+        });
+        System.out.println(bookList);
+    }
+}
+
+
+class Book{
+    private int id;
+    private String name;
+    private String author;
+
+    public Book(int id, String name, String author) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 }
