@@ -1,5 +1,10 @@
 # Core Java Concepts
 
+## Java Objects
+- equals(): by default compares if two objects are stored at the same memory location
+- hashcode: an integer asscociated with every object in java
+- if object1.equals(object2) is true, they must have the same hashcode
+
 ## Java Collection Framework
 - Iterable Interface: root interface for all the collection classes
 - Collection Interface: interface extends Iterable; implemented by all the classes in collection 
