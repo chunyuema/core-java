@@ -7,16 +7,6 @@ public class InterviewQuestionDemoMain {
     }
 
     public static void equalsDemo(){
-        String x = "string";
-        String y = "string";
-        System.out.println(x == y);
-        System.out.println(x.equals(y));
-
-        String z = new String("string");
-        System.out.println(z);
-        System.out.println(x == z); // return false since the reference of x and z are different
-        System.out.println(x.equals(z)); // return true since the value of x and z are same; String overwrites the
-        // equals to method
 
         Integer a = new Integer(3);
         Integer b = new Integer(3);

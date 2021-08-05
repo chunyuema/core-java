@@ -8,7 +8,9 @@
 - Create String 
   - String literal: Check the string constant pool; if present, return reference, if not, create new instance
   - Through new keyword: JVM creates new object on heap; literal put in the constant pool
-- 
+- String concatenation: 
+  - Use +: use StringBuilder (or StringBuffer) class and its append method
+  - Use concat()
 ## Java Objects
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
