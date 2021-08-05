@@ -20,5 +20,9 @@ public class StringBufferDemoMain {
         stringBuffer.reverse();
         System.out.println("Reversing the string: " + stringBuffer);
 
+        StringBuffer s1 = new StringBuffer("HI");
+        StringBuffer s2 = new StringBuffer("HI");
+        System.out.println("string buffer does not override equals to: " + s1.equals(s2));
+        System.out.println(s1.hashCode() + " is different from " + s2.hashCode());
     }
 }

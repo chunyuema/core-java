@@ -12,7 +12,7 @@
   - Use +: use StringBuilder (or StringBuffer) class and its append method
   - Use concat()
 - Mutable String: a string that is modifiable 
-  - StringBuffer: mutable string, synchronized
+  - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
   - StringBuilder: mutable string, non-synchronized
 ## Java Objects
 - equals(): by default compares if two objects are stored at the same memory location
