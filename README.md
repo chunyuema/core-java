@@ -1,5 +1,15 @@
 # Core Java Concepts
-
+## Java Basics
+- JVM: java virtual machine, abstract machine; provide runtime environment for running java bytecode
+  - harware dependent
+  - class loader: load class files
+  - memory area: classArea + heap + stack + pc register + native method stack
+  - execution engine: virtual processor + interpretor(execute streams of bytecode) + Just-In-Time(JIT) compiler
+    (improve performance by compile parts of the bytecode)
+  - java native interface
+- JRE: java runtime environment, implementations of JVM, contain files/libraries used by JVM at runtime
+- JDK: java development kit, software environment for developing java applications = JRE + compiler javac + archiver 
+  jar
 ## Java String
 - String works the same as Char set
 - String implements Serializable, Comparable and CharSequence interface
