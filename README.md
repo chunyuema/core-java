@@ -12,8 +12,8 @@
   - Use +: use StringBuilder (or StringBuffer) class and its append method
   - Use concat()
 - Mutable String: a string that is modifiable 
-  - StringBuffer: same as String but mutable
-  - StringBuilder
+  - StringBuffer: mutable string, synchronized
+  - StringBuilder: mutable string, non-synchronized
 ## Java Objects
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
