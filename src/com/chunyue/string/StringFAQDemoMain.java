@@ -1,12 +1,16 @@
 package com.chunyue.string;
 
+import java.util.Arrays;
+
 public class StringFAQDemoMain {
     public static void main(String[] args) {
-        //reverseStringUsingStringBuilder("hello my love");
+        // reverseStringUsingStringBuilder("hello my love");
         // reverseStringUsingIteration("Hello You!");
         // checkPalindrome("abba");
         // System.out.println("Capitalizing hello my love: " + capitalize("hello my love"));
-        System.out.println("Reveser each word in hello my love: " + reverseEachWord("hello my love"));
+        // System.out.println("Reveser each word in hello my love: " + reverseEachWord("hello my love"));
+        System.out.println("Are keep and peek anagram: " + checkAnagram("peek", "keep"));
+        System.out.println("Are Mother In Law and Wo tleh rI man anagram: " + checkAnagram("Mother In Law", "Wo tleh rI man"));
     }
 
     public static String reverseStringUsingStringBuilder(String s){
@@ -53,5 +57,21 @@ public class StringFAQDemoMain {
             newString += sb.reverse().toString() + " ";
         }
         return newString.trim();
+    }
+
+    public static boolean checkAnagram(String s1, String s2){
+        String str1 = s1.replaceAll(" ", "");
+        String str2 = s2.replaceAll(" ", "");
+        if (str1.length() != str2.length()){
+            return false;
+        } else {
+            char[] chars1 = str1.toLowerCase().toCharArray();
+            char[] chars2 = str2.toLowerCase().toCharArray();
+            Arrays.sort(chars1);
+            Arrays.sort(chars2);
+            System.out.println(chars1);
+            System.out.println(chars2);
+            return Arrays.equals(chars1, chars2);
+        }
     }
 }
