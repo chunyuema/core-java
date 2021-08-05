@@ -9,6 +9,8 @@ public class StringDemoMain {
         // stringComparison();
         // stringConcatenation();
         // subString();
+        stringToIntegerConversion();
+        integerToStringConversion();
     }
 
     public static void createString(){
@@ -59,5 +61,23 @@ public class StringDemoMain {
         System.out.println(s.substring(3, 8));
         System.out.println("Split produce: " + s.split(" ").getClass());
         System.out.println(Arrays.toString(s.split(" ")));
+    }
+
+    public static void stringToIntegerConversion(){
+        // using the static parseInt method from the Integer class
+        String s = "200";
+        System.out.println("Add 100 to String 200: " + (s+100));
+        int i = Integer.parseInt(s);
+        System.out.println("Add 100 to Integer 200: " + (i+100));
+        // using the valueOf method
+        System.out.println("Add 150 to Integer 200: " + (Integer.valueOf(s) + 150));
+    }
+
+    public static void integerToStringConversion(){
+        int i = 10;
+        System.out.println("add 10 to integer 10: " + (i+10));
+        System.out.println("add 10 to string 10: " + (String.valueOf(i) + 10));
+        System.out.println("add 10 to string 10: " + (Integer.toString(i) + 10));
+        System.out.println("add 10 to string 10: " + (String.format("%d", i) + 10));
     }
 }
