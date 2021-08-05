@@ -13,7 +13,7 @@
   - Use concat()
 - Mutable String: a string that is modifiable 
   - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
-  - StringBuilder: mutable string, non-synchronized
+  - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
 ## Java Objects
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
