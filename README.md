@@ -42,6 +42,7 @@
 - Error: irrecoverable: OutOfMemoryError, VirtualMachineError, AssertionError
 - Unhandled exception: JVM prints exception description; stack trace and then terminates
 - finally block: used to execute important code such as closing the connection
+- throw keyword: used to throw an exception explicitly
 
 ## Java Collection Framework
 - Iterable Interface: root interface for all the collection classes
