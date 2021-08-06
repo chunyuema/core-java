@@ -10,6 +10,7 @@
 - JRE: java runtime environment, implementations of JVM, contain files/libraries used by JVM at runtime
 - JDK: java development kit, software environment for developing java applications = JRE + compiler javac + archiver 
   jar
+
 ## Java String
 - String works the same as Char set
 - String implements Serializable, Comparable and CharSequence interface
@@ -25,10 +26,20 @@
 - Mutable String: a string that is modifiable 
   - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
+
 ## Java Objects
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
 - if object1.equals(object2) is true, they must have the same hashcode
+
+## Java Exception Handling
+- Exception: event / object thrown at runtime to handle runtime errors
+- Exception handling ensures the normal flow of the application
+- Exception and Error class both inherit from Throwable
+- Checked exception: checked at compile time; directly inherit Throwable: IOException, SQLException etc
+- Unchecked exceptions: checked at runtime; inherit from RuntimeException: ArithmeticException, NullPointerException,
+  ArrayIndexOutOfBoundsException etc
+- Error: irrecoverable: OutOfMemoryError, VirtualMachineError, AssertionError
 
 ## Java Collection Framework
 - Iterable Interface: root interface for all the collection classes
