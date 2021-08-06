@@ -40,6 +40,7 @@
 - Unchecked exceptions: checked at runtime; inherit from RuntimeException: ArithmeticException, NullPointerException,
   ArrayIndexOutOfBoundsException etc
 - Error: irrecoverable: OutOfMemoryError, VirtualMachineError, AssertionError
+- Unhandled exception: JVM prints exception description; stack trace and then terminates
 
 ## Java Collection Framework
 - Iterable Interface: root interface for all the collection classes
