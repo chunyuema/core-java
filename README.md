@@ -39,6 +39,7 @@
 - static keyword: 
   - static variable: common variable shared by all the instances of the class; memory efficient
   - static method: method belongs the class; can be invoked without creating an instance; can access static variable
+  - static block: initialized static data member; executed before main method; main() is required to run a java program
   
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
