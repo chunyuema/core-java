@@ -4,8 +4,9 @@ public class ThrowDemoMain {
     public static void main(String[] args) {
         // throwUncheckedException(18);
         // throwCheckedException(18);
-        userDefinedException(18);
-        userDefinedException(22);
+        // userDefinedException(18);
+        // userDefinedException(22);
+        emptyMsgException();
     }
 
     public static void throwUncheckedException(int age){
@@ -33,6 +34,14 @@ public class ThrowDemoMain {
         }
     }
 
+    public static void emptyMsgException(){
+        try {
+            throw new EmptyMessageException();
+        } catch (EmptyMessageException e){
+            System.out.println("Error occured with the message: " + e.getMessage());
+        }
+    }
+
     // validateAge is created with the possibility of throwing a DrinkingAgeExcpetion
     public static void validateAge(int age) throws DrinkingAgeException{
         if (age < 21){
@@ -48,3 +57,5 @@ class DrinkingAgeException extends Exception{
         super(message);
     }
 }
+
+class EmptyMessageException extends Exception{}
