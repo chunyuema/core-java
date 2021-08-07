@@ -5,6 +5,7 @@ public class ThrowDemoMain {
         // throwUncheckedException(18);
         // throwCheckedException(18);
         userDefinedException(18);
+        userDefinedException(22);
     }
 
     public static void throwUncheckedException(int age){
@@ -24,11 +25,20 @@ public class ThrowDemoMain {
 
     public static void userDefinedException(int age){
         try {
-            if (age<21){
-                throw new DrinkingAgeException("Not old enough to drink");
-            }
+            // when calling the validateAge, we hence needs to handle this potential exception
+            validateAge(age);
         } catch (DrinkingAgeException e){
             System.out.println(e);
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // validateAge is created with the possibility of throwing a DrinkingAgeExcpetion
+    public static void validateAge(int age) throws DrinkingAgeException{
+        if (age < 21){
+            throw new DrinkingAgeException("Not old enough to drink sorry");
+        } else {
+            System.out.println("Welcome to the drinking club");
         }
     }
 }
