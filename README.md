@@ -27,7 +27,15 @@
   - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
 
-## Java Objects
+## Java Object
+- object: entity with state and behaviors
+- class: collection of object
+- ways of creating object: new; clone; newinstance; deserialization; factory methods
+- anonymous object: objects with no names; no reference pointing to the object; used when objects are only used once
+- constructor: method called when object is created with new keyword
+  - default constructor is created and used if no constructor is provided; providing default values to the fields
+  - constructor overloading: provide different ways to create objects with different parameters
+  - return type of constructor: current class instance
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
 - if object1.equals(object2) is true, they must have the same hashcode
