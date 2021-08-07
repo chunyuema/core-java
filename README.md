@@ -36,6 +36,10 @@
   - default constructor is created and used if no constructor is provided; providing default values to the fields
   - constructor overloading: provide different ways to create objects with different parameters
   - return type of constructor: current class instance
+- static keyword: 
+  - static variable: common variable shared by all the instances of the class; memory efficient
+  - static method: method belongs the class; can be invoked without creating an instance; can access static variable
+  
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer asscociated with every object in java
 - if object1.equals(object2) is true, they must have the same hashcode
