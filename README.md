@@ -105,6 +105,25 @@
   - Package: class encapsulates the version data associated with a package
   - Throwable: class supporting exception handling
   - StackTraceElement: class describing a single stack frame, returned by Throwable.getStackTrace()
+  - Enum: a list of named constants
+- Interfaces defined by java.util.lang: 
+  - CharSequence: interface implemented by String, StringBuffer and StringBuilder
+  - Comparable: interface implemented by classes that require meaningful comparison / compareTo()
+  - Appendable: interface implemented by classes that can have character / character sequence appended
+  - Iterable: interface implemented by classes whose objects will be used by the for-each version of the for loop / 
+    forEach()
+  - Readable: interface indicating an object that can be used as a source of characters / read()
+  - AutoClosable: interface supporting the try with resources statement / close() / IO class which need to close a 
+    stream
+  - Thread.UncaughtExceptionHandler: implemented by class that wants to handle uncaught exceptions
+- Subpackages defined by java.util.lang: 
+  - java.lang.annotation: defines Annotation interface
+  - java.lang.instrument: add instrumentations to various aspects of program execution
+  - java.lang.invoke: supports dynamic languages
+  - java.lang.management: management support for JVM and execution environment
+  - java.lang.ref: provide flexible control over garbage collection / references to an object
+  - java.lang.reflect: provide ability to access field, constructors, methods and modifier of a class
+  
 
 
 
