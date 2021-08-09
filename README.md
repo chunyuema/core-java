@@ -109,6 +109,7 @@
 - Interfaces defined by java.util.lang: 
   - CharSequence: interface implemented by String, StringBuffer and StringBuilder
   - Comparable: interface implemented by classes that require meaningful comparison / compareTo()
+  - Cloneable: objects with implementing clonable interface can be cloned / not recommended to be implemented
   - Appendable: interface implemented by classes that can have character / character sequence appended
   - Iterable: interface implemented by classes whose objects will be used by the for-each version of the for loop / 
     forEach()
