@@ -77,6 +77,38 @@
     - SortedSet: interface extends Set
         - TreeSet: class implements Set with a tree; fast access and retreval of elements
   
+## Java java.util.lang
+- Automatically imported into all programs
+- Classes defined by java.util.lang: 
+  - Primitive type wrappers: wrap primitive type in a class
+    - Number: abstract class defining superclass implemented by Double, Float, Byte, Short, Integer, Long
+      - parseInt; parseByte etc defined on the wrapper class: used to convert strings into primitive type numbers
+    - Char: wrapper around char / isDigit, isLetter etc used to check the categories of the character
+    - Boolean: wrapper around boolean
+  - Void: TYPE field holds reference to the Class object for type void
+  - Process: primarily used as a superclass for objects created by exec() in Runtime
+  - Runtime: class that encapsulate run-time environment; cannot be instantiated
+  - Memory Management: totalMemory(), freeMemory() and gc() running garbage collector on demand
+  - ProcessBuilder: 
+  - System: class that holds static methods and variables such as in, out, err, currentTimeMilis(); arrayCopy();
+    - System.getProperty() can be useful to check environmental properties such as user directory
+    - System.getSecurityManager(): return SecurityManager object; supports the Java security system; 
+  - Object: superclass of all classes
+    - class implementing Cloneable interface can be cloned
+  - Class: encapsulate the runtime state of a class / interface
+    - automatically created when classes are loaded / obtained using getClass() / getSuperClass()
+    - Class<?> classObject = x.getClass() / classObject.getClass()
+  - ClassLoader: abstract class defining how classes are loaded / can be extended but not normally done
+  - Math: class defining floating point functions used for geometry and trigonometry
+  - Compiler: class supporting the creation of Java environments to compile java bytecode into executable code
+  - Thread, ThreadGroup and Runnable: classes used to support multithreaded programming
+  - Package: class encapsulates the version data associated with a package
+  - Throwable: class supporting exception handling
+  - StackTraceElement: class describing a single stack frame, returned by Throwable.getStackTrace()
+
+
+
+
 ## Java Concurrency
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
