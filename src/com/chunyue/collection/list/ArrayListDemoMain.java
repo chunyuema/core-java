@@ -28,6 +28,13 @@ public class ArrayListDemoMain {
             System.out.println("The item is: " + itrator.next());
         }
 
+        // Iterating using listIterator
+        ListIterator<Integer> listIterator = values.listIterator();
+        while (listIterator.hasNext()){ System.out.println("The item is: " + listIterator.next());}
+        while (listIterator.hasPrevious()){
+            System.out.println("Iterating backwards with item: " + listIterator.previous());
+        }
+
         // Iterating through the array list with for loop
         for (Integer i: values){
             System.out.println("The number is: " + i);
