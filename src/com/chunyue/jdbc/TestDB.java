@@ -9,7 +9,9 @@ public class TestDB {
     public static void main(String[] args) {
         // createDBwithTryCatch();
         // createDBWithTryResourceCatch();
-        insertToDB();
+        // insertToDB();
+        // updateDB();
+        // deleteEntryFromDB();
     }
 
     public static void createDBwithTryCatch(){
@@ -53,6 +55,32 @@ public class TestDB {
             connection.close();
         }catch (SQLException e){
             System.out.println("Failed! " + e.getMessage());
+        }
+    }
+
+    public static void updateDB(){
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:/Users/chunyuema/desktop/developer" +
+                    "/testjava.db");
+            Statement statement = connection.createStatement();
+            statement.execute("UPDATE contacts SET phone=11111 WHERE name='Joe'");
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            System.out.println("Fail to update: " + e.getMessage());
+        }
+    }
+
+    public static void deleteEntryFromDB(){
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:/Users/chunyuema/desktop/developer" +
+                    "/testjava.db");
+            Statement statement = connection.createStatement();
+            statement.execute("DELETE FROM contacts WHERE name='Joe'");
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            System.out.println("Fail to update: " + e.getMessage());
         }
     }
 }
