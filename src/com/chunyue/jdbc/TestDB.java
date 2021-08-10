@@ -1,9 +1,6 @@
 package com.chunyue.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class TestDB {
     public static void main(String[] args) {
@@ -12,6 +9,7 @@ public class TestDB {
         // insertToDB();
         // updateDB();
         // deleteEntryFromDB();
+        selectFromDB();
     }
 
     public static void createDBwithTryCatch(){
@@ -81,6 +79,26 @@ public class TestDB {
             connection.close();
         } catch (SQLException e){
             System.out.println("Fail to update: " + e.getMessage());
+        }
+    }
+
+    public static void selectFromDB(){
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:/Users/chunyuema/desktop/developer" +
+                    "/testjava.db");
+            Statement statement = connection.createStatement();
+            statement.execute("SELECT * FROM contacts");
+            ResultSet resultSet = statement.getResultSet();
+            while (resultSet.next()){
+                System.out.println(resultSet.getString("name") + " " +
+                                    resultSet.getInt("phone") + " " +
+                                    resultSet.getString("email"));
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            System.out.println("Fail to query: " + e.getMessage());
         }
     }
 }
