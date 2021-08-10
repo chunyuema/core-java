@@ -86,6 +86,7 @@
 - Iteration of Collection: 
   - Use iterator: an iterator either implements Iterator or ListIterator (for collections implementing List Interface) 
     interface
+    - list iterator: allow traverse forward and backwards; allow modification of array items
   - Use forEach: for can cycle through any collection of objects that implement Iterable interface
 - Vector: similar to ArrayList but synchronized
   - Stack: a subclass of Vector

@@ -30,7 +30,12 @@ public class ArrayListDemoMain {
 
         // Iterating using listIterator
         ListIterator<Integer> listIterator = values.listIterator();
-        while (listIterator.hasNext()){ System.out.println("The item is: " + listIterator.next());}
+        while (listIterator.hasNext()){
+            int num = listIterator.next();
+            System.out.println("The item is: " + num);
+            System.out.println("Multiplying 10: ");
+            listIterator.set(num * 10);
+        }
         while (listIterator.hasPrevious()){
             System.out.println("Iterating backwards with item: " + listIterator.previous());
         }
