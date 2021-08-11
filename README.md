@@ -58,41 +58,7 @@
 - throw keyword: used to throw an exception explicitly; used in the function; throw one exception at a time
 - throws keyword: used in method signature to declare an exception might be thrown; throws >= exception
 
-## Java Collection Framework
-- Generics: explicitly specify the type of data stored in the collection; increase in type safety and reduce 
-  run-time type mismatch errors
-- Autoboxing/unboxing: automatically perform boxing of primitive types with the wrapper so that they can be stored 
-  in the collections
-- Iterable Interface: root interface for all the collection classes; allow for loop and forEach
-- Interfaces defined by Collection framework: ClassCastException thrown if object to be added is incompatible; 
-  NullPointerException thrown if attempting to add null object
-  - Collection Interface: interface extends Iterable; implemented by all the classes in collection
-  framework; all collections can be cycled through by using for each style for loop
-  - List Interface: interface extends Collection; inhibits list data structure
-  - Queue Interface: interface extends Collection; list with first-in-first-out order
-  - Deque Interface: interface extends Queue; double ended queue
-  - Set Interface: interface extends Collection; represents unordered set of elements; no duplicates
-  - SortedSet: interface extends Set; handled sorted set
-  - NavigableSet: interface extends SortedSet; handle retrieval of elements based on closet match searches
-- Classes defined by Collection framework: 
-  - ArrayList: implements List interface using a dynamic array
-  - LinkedList: implements Deque interface using a doubly linked list
-  - ArrayDeque: implements Deque interface; dynamic array with no capacity restrictions; faster than ArrayList and Stack
-  - HashSet: implements Set interface; use hashtable for storage; cannot be indexed
-  - LinkedHashSet: extends HashSet with linked list; maintain insertion order
-  - TreeSet: implements NavigableSet interface with a tree; fast access and retrieval of element
-  - PriorityQueue: implements Queue interface; creates a queue prioritized based on the queue's comparator
-  - EnumSet: implements Set interface, specifically used for elements of enum type
-- Iteration of Collection: 
-  - Use iterator: an iterator either implements Iterator or ListIterator (for collections implementing List Interface) 
-    interface
-    - list iterator: allow traverse forward and backwards; allow modification of array items
-  - Use forEach: for can cycle through any collection of objects that implement Iterable interface
-- Vector: similar to ArrayList but synchronized
-  - Stack: a subclass of Vector
-  
-  
-## Java java.util.lang
+## Java java.lang
 - Automatically imported into all programs
 - Classes defined by java.util.lang: 
   - Primitive type wrappers: wrap primitive type in a class
@@ -139,10 +105,58 @@
   - java.lang.management: management support for JVM and execution environment
   - java.lang.ref: provide flexible control over garbage collection / references to an object
   - java.lang.reflect: provide ability to access field, constructors, methods and modifier of a class
+
+
+## Java Collection Framework
+- Generics: explicitly specify the type of data stored in the collection; increase in type safety and reduce
+  run-time type mismatch errors
+- Autoboxing/unboxing: automatically perform boxing of primitive types with the wrapper so that they can be stored
+  in the collections
+- Iterable Interface: root interface for all the collection classes; allow for loop and forEach
+- Interfaces defined by Collection framework:
+  - Collection Interface: interface extends Iterable; implemented by all the classes in collection
+    framework; all collections can be cycled through by using for each style for loop
+    - List Interface: interface extends Collection; inhibits list data structure
+    - Queue Interface: interface extends Collection; list with first-in-first-out order
+      - Deque Interface: interface extends Queue; double ended queue
+    - Set Interface: interface extends Collection; represents unordered set of elements; no duplicates
+      - SortedSet Interface: interface extends Set; handled sorted set
+      - NavigableSet Interface: interface extends SortedSet; handle retrieval of elements based on closet match searches
+  - Map Interface: maps unique keys to values
+    - SortedMap Interface: extends Map; ensure ordering of entries based on keys
+    - NavigableMap Interface: interface extends SortedMap; handle retrieval of elements based on closet match searches
+    - Map.Entry Interface: support working with a map entry
+- Classes defined by Collection framework:
+  - Collection classes
+    - List Classes: 
+      - ArrayList: implements List interface using a dynamic array
+      - LinkedList: implements List, Deque, Queue interface using a doubly linked list
+      - Vector: similar to ArrayList but synchronized
+      - Stack: a subclass of Vector
+    - Queue Classes:
+      - PriorityQueue: implements Queue interface; creates a queue prioritized based on the queue's comparator
+      - ArrayDeque: implements Deque interface; dynamic array with no capacity restrictions; faster than ArrayList and Stack
+      - LinkedList: implements List, Deque, Queue interface using a doubly linked list
+    - Set Classes:
+      - HashSet: implements Set interface; use hashtable for storage; cannot be indexed
+      - LinkedHashSet: extends HashSet with linked list; maintain insertion order
+      - TreeSet: implements NavigableSet interface with a tree; fast access and retrieval of element
+      - EnumSet: implements Set interface, specifically used for elements of enum type
+  - Map Classes: 
+    - AbstractMap: implement most of the Map Interface; super class for map implementations
+    - EnumMap: extends AbstractMap to use with enum keys
+    - HashMap: extends AbstractMap to use a hashtable
+      - LinkedHashMap: extends HashMap to allow insertion order iterations
+    - TreeMap: extends AbstractMap to use a tree
+    - WeakHashMap: extends AbstractMap to use a hashtable with weak keys
+    - IdentityHashMap: extends AbstractMap to use reference equality when comparing documents
+- Iteration of Collection:
+  - Use iterator: an iterator either implements Iterator or ListIterator (for collections implementing List Interface)
+    interface
+    - list iterator: allow traverse forward and backwards; allow modification of array items
+    - spliterator: parallel iteration of portions of the sequences
+  - Use forEach: for can cycle through any collection of objects that implement Iterable interface
   
-
-
-
 
 ## Java Concurrency
 - **DeadLock**: 
