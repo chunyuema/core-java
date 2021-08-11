@@ -9,7 +9,8 @@ public class TestDB {
         // insertToDB();
         // updateDB();
         // deleteEntryFromDB();
-        selectFromDB();
+        // queryDBWithExecute();
+        // queryDBWithExecuteStatment();
     }
 
     public static void createDBwithTryCatch(){
@@ -82,7 +83,7 @@ public class TestDB {
         }
     }
 
-    public static void selectFromDB(){
+    public static void queryDBWithExecute(){
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:/Users/chunyuema/desktop/developer" +
                     "/testjava.db");
@@ -99,6 +100,25 @@ public class TestDB {
             connection.close();
         } catch (SQLException e){
             System.out.println("Fail to query: " + e.getMessage());
+        }
+    }
+
+    public static void queryDBWithExecuteStatment(){
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:/Users/chunyuema/desktop/developer" +
+                    "/testjava.db");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM contacts");
+            while(resultSet.next()){
+                System.out.println(resultSet.getString("name") + " " +
+                        resultSet.getInt("phone") + " " +
+                        resultSet.getString("email"));
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e){
+            System.out.println("Failed to query" + e);
         }
     }
 }
