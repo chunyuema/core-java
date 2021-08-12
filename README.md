@@ -131,8 +131,9 @@
     - List Classes: 
       - ArrayList: implements List interface using a dynamic array
       - LinkedList: implements List, Deque, Queue interface using a doubly linked list
-      - Vector: similar to ArrayList but synchronized
-      - Stack: a subclass of Vector
+      - Vector: similar to ArrayList but synchronized; legacy classes made fully compatible with the modern 
+        collection framework
+        - Stack: a subclass of Vector
     - Queue Classes:
       - PriorityQueue: implements Queue interface; creates a queue prioritized based on the queue's comparator
       - ArrayDeque: implements Deque interface; dynamic array with no capacity restrictions; faster than ArrayList and Stack
@@ -156,8 +157,19 @@
     - list iterator: allow traverse forward and backwards; allow modification of array items
     - spliterator: parallel iteration of portions of the sequences
   - Use forEach: for can cycle through any collection of objects that implement Iterable interface
+- Collection Algorithm: 
+  - static method of the Collections class; can be applied to collections and map
+  - checkedCollection ensures type safety of the collection
+  - synchronizedList/Set used to obtain the synchronized version of the collections
+- Legacy Classes and Interfaces: 
+  - Collection classes are not synchronized but legacy classes are synchronized
+  - Enumeration Interface: superseded by Iterator
+  - Vector: synchronized, dynamic array; Stack has Vector as superclass
+  - Dictionary: abstract class fully superseded by Map
+    - Hashtable: concrete implementation of dictionary; integrated into the Collection framework by implementing the 
+      Map interface
+      - Properties: a subclass of Hashtable; String key and String values
   
-
 ## Java Concurrency
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
