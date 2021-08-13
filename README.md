@@ -105,9 +105,8 @@
   - java.lang.management: management support for JVM and execution environment
   - java.lang.ref: provide flexible control over garbage collection / references to an object
   - java.lang.reflect: provide ability to access field, constructors, methods and modifier of a class
-
-
-## Java Collection Framework
+  
+## Java Util: Collection Framework
 - Generics: explicitly specify the type of data stored in the collection; increase in type safety and reduce
   run-time type mismatch errors
 - Autoboxing/unboxing: automatically perform boxing of primitive types with the wrapper so that they can be stored
@@ -170,6 +169,12 @@
       Map interface
       - Properties: a subclass of Hashtable; String key and String values
   
+## Java Util: utility classes: 
+- StringTokenizer: implement the Enumberation interface, tokenize a string based on delimiter
+- BitSet: creates a special type of array that holds bit values in the form of boolean values; all bits are 
+  initialized to be zero
+- Optional: utility classes to handle situations when a value may or maynot be present; no defined constructor; need 
+  to create an instance
 ## Java Concurrency
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
