@@ -175,6 +175,31 @@
   initialized to be zero
 - Optional: utility classes to handle situations when a value may or maynot be present; no defined constructor; need 
   to create an instance
+- Date: class encapsulate the current date and time 
+- Calendar: an abstract class providing a set of methods that helps with converting time
+  - GregorianCalendar: concrete implementation of a Calendar
+- Timezone: an abstract class to work with timezone offset
+  - SimpleTimeZone: subclass of timezone
+- Locale: class describing a geographical or cultural region
+- Random: class used to generate pseudorandom numbers
+- Observable: class used to create subclasses that other parts of the program can observe
+- Time/Timetask: schedule a task for execution at future time
+- Currency: class encapsulates information about currency
+- Formatter: class supporting creation of formatted output
+- Scanner: read formatter input and converts it into its binary form
+- Java util subpackages: 
+  - concurrent
+  - concurrent.atomic
+  - concurrent.locks
+  - function
+  - jar
+  - logging
+  - prefs
+  - regex
+  - spi
+  - stream
+  - zip
+  
 ## Java Concurrency
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
