@@ -1,4 +1,4 @@
-package com.chunyue.collection.list;
+package com.chunyue.collection.legacy;
 
 import java.util.Iterator;
 import java.util.Stack;

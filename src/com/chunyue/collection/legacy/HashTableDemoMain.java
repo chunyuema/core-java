@@ -2,6 +2,7 @@ package com.chunyue.collection.legacy;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 public class HashTableDemoMain {
     public static Hashtable<String, Double> balance = new Hashtable<>();
@@ -15,6 +16,7 @@ public class HashTableDemoMain {
     public static void main(String[] args) {
         // System.out.println(balance);
         // iterateUsingEnumeration();
+        iterateUsingIterator();
     }
 
     public static void iterateUsingEnumeration(){
@@ -26,5 +28,14 @@ public class HashTableDemoMain {
             str = names.nextElement();
             System.out.println(str + ": " + balance.get(str));
         }
+    }
+
+    public static void iterateUsingIterator(){
+        Iterator<String> iterator = balance.keySet().iterator();
+        while (iterator.hasNext()){
+            String name = iterator.next();
+            System.out.println(name + ": " + balance.get(name));
+        }
+        System.out.println();
     }
 }
