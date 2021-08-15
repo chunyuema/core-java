@@ -168,6 +168,8 @@
     - Hashtable: concrete implementation of dictionary; integrated into the Collection framework by implementing the 
       Map interface
       - Properties: a subclass of Hashtable; String key and String values
+- Collection is an interface; Collections is a utility class which defines utility methods that can be used on 
+  collection; Collections only contain static methods
   
 ## Java Util: utility classes: 
 - StringTokenizer: implement the Enumberation interface, tokenize a string based on delimiter
