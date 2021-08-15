@@ -139,6 +139,7 @@
       - LinkedList: implements List, Deque, Queue interface using a doubly linked list
     - Set Classes:
       - HashSet: implements Set interface; use hashtable for storage; cannot be indexed
+        - use HashMap for implementation; keys used to store the elements; values are all PRESENT
       - LinkedHashSet: extends HashSet with linked list; maintain insertion order
       - TreeSet: implements NavigableSet interface with a tree; fast access and retrieval of element
       - EnumSet: implements Set interface, specifically used for elements of enum type
@@ -166,7 +167,8 @@
   - Vector: synchronized, dynamic array; Stack has Vector as superclass
   - Dictionary: abstract class fully superseded by Map
     - Hashtable: concrete implementation of dictionary; integrated into the Collection framework by implementing the 
-      Map interface
+      Map interface; since it is synchronized, it is less efficient than HashMap
+      - HashMap allows null but Hashtable does not allow null
       - Properties: a subclass of Hashtable; String key and String values
 - Collection is an interface; Collections is a utility class which defines utility methods that can be used on 
   collection; Collections only contain static methods
