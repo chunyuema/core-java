@@ -152,9 +152,10 @@
     - WeakHashMap: extends AbstractMap to use a hashtable with weak keys
     - IdentityHashMap: extends AbstractMap to use reference equality when comparing documents
 - Iteration of Collection:
-  - Use iterator: an iterator either implements Iterator or ListIterator (for collections implementing List Interface)
-    interface
-    - list iterator: allow traverse forward and backwards; allow modification of array items
+  - Use iterator: lightweight object; iterate through collection without the need to understand how the 
+    data structure is implemented
+    - iterator: only traverse forward; for all collection classes
+    - list iterator: allow traverse forward and backwards; only for list classes; allow modification of array items
     - spliterator: parallel iteration of portions of the sequences
   - Use forEach: for can cycle through any collection of objects that implement Iterable interface
 - Collection Algorithm: 
