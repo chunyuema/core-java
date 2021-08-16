@@ -224,6 +224,19 @@
   - thread creation: start creates new thread and then run gets executed; run does not create a new thread, just 
     execute on the current thread -> hence not multithreading
   - multiple invocation: start cannot be called tice but run can since it is just a normal method calling
+- Synchronization: prevent thread intervention and consistency problem: every object has a lock/monitor; a thread 
+  that needs consistent access to an object's fields has to acquire the lock (enter the monitor) first, and then release the lock after they are done; 
+  all other threads attempting to enter the monitor has to wait
+  - method 1 of obtaining lock: synchronized method
+    - automatically does its job when wrapped in synchronized block
+    - a thread cannot be interrupted
+    - not guarantee particular access order
+    - lock should be released in the same order of acquiring
+  - method 2 of obtaining lock: reentrant lock
+    - needs to explicitly call lock and unlock method
+    - use lockInterruptibly() to interrupt a thread
+    - fairness parameter can favor the longest waiting thread
+    - lock can be released in any order
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
   - An application may stall or fail as the deadlocked threads cannot progress.
@@ -244,5 +257,10 @@
     - Memory inconsistency can happen if the cache for even CPU is not synced
     - A volatile variable is written back to the main memory by JVM for cache consistency
         - Volatile variables do not completely prevent memory inconsistency 
-    
+- ThreadLocal: local variable not shared outside the thread; memory leak might happen
+- Thread Pool: 
+  - newFixedThreadPool: every new task creates a new thread until max
+  - newCachedThreadPool: automatically recycle the free threads
+  - newSingleThreadExecutor: only single thread; execute the tasks based on the sequence in queue
+  - newScheduledThreadPool: fixed size thread pool; tasks can be timed
     
