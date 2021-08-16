@@ -206,8 +206,24 @@
   - zip
   
 ## Java Multithreading
+- Thread Creation: extends Thread; implements Runnable; use Callable & Future
+- Life Cycle of a thread: new -> runnable -> running -> blocked -> terminated
+  - new: create a new thread; before calling the start()
+  - runnable: a thread is in the runnable state if start() is called but not yet getting selected
+  - running: thread selected by the scheduler to run
+  - blocked: thread is alive but not eligible to run
+  - terminated: after the run() is finished or stop() is called
 - Daemon Thread: service provider thread which provides services to user thread; life depends on the user thread
   - examples of daemon threads: finalizer; gc
+  - daemon thread needs to be set before the thread starts
+- sleep() and wait(): 
+  - sleep: static method on Thread; does not change the lock on the object
+  - wait: method on Object; release the lock; can be wakened up through notify;notifyAll
+- notify() and notifyAll():
+- run() and start(): 
+  - thread creation: start creates new thread and then run gets executed; run does not create a new thread, just 
+    execute on the current thread -> hence not multithreading
+  - multiple invocation: start cannot be called tice but run can since it is just a normal method calling
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
   - An application may stall or fail as the deadlocked threads cannot progress.
