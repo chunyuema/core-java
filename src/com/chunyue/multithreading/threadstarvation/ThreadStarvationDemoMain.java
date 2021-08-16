@@ -1,6 +1,6 @@
-package com.chunyue.concurrency.threadstarvation;
+package com.chunyue.multithreading.threadstarvation;
 
-import com.chunyue.concurrency.ThreadColor;
+import com.chunyue.multithreading.ThreadColor;
 
 import java.util.concurrent.locks.ReentrantLock;
 

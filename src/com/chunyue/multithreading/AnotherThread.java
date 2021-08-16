@@ -1,5 +1,5 @@
-package com.chunyue.concurrency;
-import static com.chunyue.concurrency.ThreadColor.ANSI_BLUE;
+package com.chunyue.multithreading;
+import static com.chunyue.multithreading.ThreadColor.ANSI_BLUE;
 
 public class AnotherThread extends Thread{
     @Override

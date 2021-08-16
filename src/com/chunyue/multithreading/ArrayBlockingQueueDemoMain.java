@@ -1,9 +1,9 @@
-package com.chunyue.concurrency;
+package com.chunyue.multithreading;
 
 import java.util.Random;
 import java.util.concurrent.*;
 
-import static com.chunyue.concurrency.ConcurrentPackageDemoMain.EOF;
+import static com.chunyue.multithreading.ConcurrentPackageDemoMain.EOF;
 
 public class ArrayBlockingQueueDemoMain {
     public static final String EOF = "EOF";

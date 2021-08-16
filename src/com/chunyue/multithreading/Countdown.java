@@ -1,4 +1,4 @@
-package com.chunyue.concurrency;
+package com.chunyue.multithreading;
 
 public class Countdown {
     // this does not work with multithreading since it is stored on the heap

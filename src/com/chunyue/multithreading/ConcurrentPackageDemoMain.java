@@ -1,4 +1,4 @@
-package com.chunyue.concurrency;
+package com.chunyue.multithreading;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static com.chunyue.concurrency.ConcurrentPackageDemoMain.EOF;
+import static com.chunyue.multithreading.ConcurrentPackageDemoMain.EOF;
 
 public class ConcurrentPackageDemoMain {
     public static final String EOF = "EOF";

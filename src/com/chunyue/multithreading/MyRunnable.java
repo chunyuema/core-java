@@ -1,6 +1,6 @@
-package com.chunyue.concurrency;
+package com.chunyue.multithreading;
 
-import static com.chunyue.concurrency.ThreadColor.ANSI_RED;
+import static com.chunyue.multithreading.ThreadColor.ANSI_RED;
 
 public class MyRunnable implements Runnable{
     @Override

@@ -1,4 +1,4 @@
-package com.chunyue.concurrency;
+package com.chunyue.multithreading;
 
 public class ThreadColor {
     public static final String ANSI_RESET = "\u001B[0m";

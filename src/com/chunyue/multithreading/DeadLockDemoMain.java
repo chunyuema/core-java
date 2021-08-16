@@ -1,4 +1,4 @@
-package com.chunyue.concurrency;
+package com.chunyue.multithreading;
 
 public class DeadLockDemoMain {
 
