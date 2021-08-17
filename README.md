@@ -227,12 +227,12 @@
 - Synchronization: prevent thread intervention and consistency problem: every object has a lock/monitor; a thread 
   that needs consistent access to an object's fields has to acquire the lock (enter the monitor) first, and then release the lock after they are done; 
   all other threads attempting to enter the monitor has to wait
-  - method 1 of obtaining lock: synchronized method
+  - method 1 of obtaining lock: synchronized method (suitable for small code amount)
     - automatically does its job when wrapped in synchronized block
     - a thread cannot be interrupted
     - not guarantee particular access order
     - lock should be released in the same order of acquiring
-  - method 2 of obtaining lock: reentrant lock
+  - method 2 of obtaining lock: reentrant lock (suitable for larger amount of code)
     - needs to explicitly call lock and unlock method
     - use lockInterruptibly() to interrupt a thread
     - fairness parameter can favor the longest waiting thread
@@ -243,24 +243,22 @@
 - **LiveLock**: 
   - Two or more threads keep on transferring states between one another instead of waiting infinitely.
   - None of the thread can perform their tasks properly 
-- LiveLock: 
-- A thread can be suspended in the middle of performing some tasks
-- **Atomic Action**: 
-    - An action that cannot be suspended in the middle
-        - Reading and writing reference variables: myObj1 = myObj2
-        - Reading and writing reference primitive variables except longs and doubles
-        - Reading and writing reference variable that is declared as volatile
-    - `java.util.concurrent.atomic`: can be used for making reading and writing variable atomic
-        - `AtomicInteger`, `AtomicLong` are avaible
-- **Memory Consistency Error**: 
-    - Threads can run on difference CPUs
-    - Memory inconsistency can happen if the cache for even CPU is not synced
-    - A volatile variable is written back to the main memory by JVM for cache consistency
-        - Volatile variables do not completely prevent memory inconsistency 
+- LiveLock:
+- Data inconsistency: synchronized only applicable for methods; not for variable/classes; data inconsistency happens 
+  when multiple threads try to access the same java object
+  - use synchronized keyword to lock the variable; might incur performance issue
+  - use volatile keyword: read and write back to the RAMs instead of cache; better performance
+- Atomic Action: 
+  - A thread can be suspended in the middle of performing some tasks
+  - Atomic actions cannot be suspended in the middle
+      - Reading and writing reference variables: myObj1 = myObj2
+      - Reading and writing reference primitive variables except longs and doubles
+      - Reading and writing reference variable that is declared as volatile
+  - `java.util.concurrent.atomic`: can be used for making reading and writing variable atomic
+      - `AtomicInteger`, `AtomicLong` are available
 - ThreadLocal: local variable not shared outside the thread; memory leak might happen
 - Thread Pool: 
   - newFixedThreadPool: every new task creates a new thread until max
   - newCachedThreadPool: automatically recycle the free threads
   - newSingleThreadExecutor: only single thread; execute the tasks based on the sequence in queue
   - newScheduledThreadPool: fixed size thread pool; tasks can be timed
-    
