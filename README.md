@@ -237,6 +237,7 @@
     - use lockInterruptibly() to interrupt a thread
     - fairness parameter can favor the longest waiting thread
     - lock can be released in any order
+- Synchronized method: thread acquires the lock for shared resource; release the lock when done 
 - **DeadLock**: 
   - A deadlock occurs when two or more threads wait forever for a lock or resource held by another of the threads.
   - An application may stall or fail as the deadlocked threads cannot progress.
