@@ -100,8 +100,23 @@
 - Type Casting: converting one datatype to another
   - up casting: child object typecasted to parent class object (generalization / widening)
   - down casting: parent object typecasted to child class object 
+
+### Java Abstraction
+- abstraction: hiding the implementation details
+- 2 methods of achieving abstraction: 
+  - abstraction class: class declared with abstract; abstract + non-abstract method; cannot be instantiated; 
+    designed to be instantiated
+    - abstract method: method declared as abstract with no actual implementation
+  - interface: a blueprint of classes
+- Interface and Abstract class comparison
   
-    
+  |-|Abstract Class|Interface|
+  |------|----|-----|
+  |Method|Abstract + non-abstract method|Non-abstract method only|
+  |Variable|Final; Non-final; Static; Non-static variables|Static; Final Variables only|
+  |Implementation|Can provide implementation|No implementation|
+  |Multiple Implementations|Extends another classes / Implement >=1 interfaces|Extends other interfaces only|
+  
   
   
 ## Java Exception Handling
