@@ -1,4 +1,4 @@
-package com.chunyue.multithreading;
+package com.chunyue.multithreading.synchronizedkeyword;
 
 class Table {
     // synchronized method: lock the object for shared resource
@@ -15,9 +15,9 @@ class Table {
 }
 
 class Thread1 extends Thread {
-    Table t;
+    Table2 t;
 
-    public Thread1(Table t) {
+    public Thread1(Table2 t) {
         this.t = t;
     }
 
@@ -28,9 +28,9 @@ class Thread1 extends Thread {
 }
 
 class Thread2 extends Thread {
-    Table t;
+    Table2 t;
 
-    public Thread2(Table t) {
+    public Thread2(Table2 t) {
         this.t = t;
     }
 
@@ -41,7 +41,7 @@ class Thread2 extends Thread {
 
 public class SynchronizedMethodDemoMain {
     public static void main(String[] args) {
-        Table table = new Table();
+        Table2 table = new Table2();
         Thread1 t1 = new Thread1(table);
         Thread2 t2 = new Thread2(table);
         t1.start();
