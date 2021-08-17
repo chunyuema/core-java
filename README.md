@@ -64,6 +64,46 @@
   - create a reference of an object in another object
   - when to use aggregation: IS-A relationship is not maintained throughout the lifetime of an object
 
+### Java Polymorphism
+- method overloading: same name of the methods but different parameters
+  - two ways of overloading: change the number of parameters; change the datatype of parameters
+  - type promotion: one type can be promoted to another type implicitly to match the datatype found
+- method overriding: subclass declare same method as parent class; used for runtime polymorphism
+  - over instance method can be overridden; static method cannot be overridden
+  - covariant return types: overriding a method and change its return type (after java5)
+- super keyword: 
+  - used to refer to the immediate parent class instance variable
+  - used to invoke parent class instance method
+  - used to invoke parent class constructor (super() is added in each class constructor automatically by compiler if there is no super() or this())
+- instance initializer block: 
+  - executed when the instance of the object is created
+  - executed after the parent constructor; before the current class constructor
+- final keyword: 
+  - final variable: value cannot be changed
+    - blank final variable: a final variable that is not initialized at the time of declaration; but can be 
+      initialized through constructor (not change after that)
+    - static blank final variable: a final variable that is not initialized at the time of declaration; but can be
+      initialized through static block
+    - final parameter: cannot modify this parameter in the function 
+  - final method: cannot be overridden
+  - final class: cannot be extended
+- polymorphism:
+  - compile time polymorphism: overriding static method will result in this
+  - runtime polymorphism (dynamic method dispatch): 
+    - overridden method resolved at runtime by JVM
+    - data variables are not overridden, hence does not display runtime polymorphism
+- Type binding: 
+  - everything has a type in java
+  - static binding: the type is determined during compile time (private, final or static method)
+  - dynamic binding: the type is determined during runtime
+- instanceof operator: test if object is an instance of a specified type
+- Type Casting: converting one datatype to another
+  - up casting: child object typecasted to parent class object (generalization / widening)
+  - down casting: parent object typecasted to child class object 
+  
+    
+  
+  
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
