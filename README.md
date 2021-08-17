@@ -117,7 +117,16 @@
   |Implementation|Can provide implementation|No implementation|
   |Multiple Implementations|Extends another classes / Implement >=1 interfaces|Extends other interfaces only|
   
-  
+### Java Encapsulation
+- Package: a group of similar classes, interfaces or subclasses
+  - Built in packages: java = lang + util + awt 
+  - Importance of packaging: access protection; avoid naming collision
+  - Subpackage: package within another package
+- Access modifier: 
+  - Private: only available in the class
+  - Default: only available in the package
+  - Protected: only available in the package or outside the package through child class
+  - Public: can be accessed from anywhere
   
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
