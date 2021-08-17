@@ -27,10 +27,11 @@
   - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
 
-## Java Object
+## Java Object-Oriented Programming
+### Java Object Class
 - object: entity with state and behaviors
 - class: collection of object
-- ways of creating object: new; clone; newinstance; deserialization; factory methods
+- ways of creating object: new; clone; new instance; deserialization; factory methods
 - anonymous object: objects with no names; no reference pointing to the object; used when objects are only used once
 - constructor: method called when object is created with new keyword
   - default constructor is created and used if no constructor is provided; providing default values to the fields
@@ -40,10 +41,28 @@
   - static variable: common variable shared by all the instances of the class; memory efficient
   - static method: method belongs the class; can be invoked without creating an instance; can access static variable
   - static block: initialized static data member; executed before main method; main() is required to run a java program
-  
+- this keyword: 
+  - used to refer to the class instance variable
+  - used to invoke the current class method (added automatically by compiler if absent)
+  - used to invoke the current class constructor (constructor chaining and reuse of constructor calls)
+  - can be passed in as an argument (used in event handling)
+  - can be used in the constructor call 
+  - can be used to return an instance of the current class
 - equals(): by default compares if two objects are stored at the same memory location
-- hashcode: an integer asscociated with every object in java
+- hashcode: an integer associated with every object in java
 - if object1.equals(object2) is true, they must have the same hashcode
+
+### Java Inheritance
+- Inheritance: IS-A relationship 
+  - extends keyword
+  - type of inheritance: single; multilevel; hierarchical
+    - single: one class inherit another one
+    - multilevel: chain of inheritance
+    - hierarchical: >= 2 classes inheritance one class
+    - multiple inheritance is not supported in java: class C extends A, B
+- Aggregation: HAS-A relationship
+  - create a reference of an object in another object
+  - when to use aggregation: IS-A relationship is not maintained throughout the lifetime of an object
 
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
