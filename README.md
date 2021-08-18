@@ -116,7 +116,7 @@
   |Variable|Final; Non-final; Static; Non-static variables|Static; Final Variables only|
   |Implementation|Can provide implementation|No implementation|
   |Multiple Implementations|Extends another classes / Implement >=1 interfaces|Extends other interfaces only|
-  
+
 ### Java Encapsulation
 - Package: a group of similar classes, interfaces or subclasses
   - Built in packages: java = lang + util + awt 
@@ -127,7 +127,15 @@
   - Default: only available in the package
   - Protected: only available in the package or outside the package through child class
   - Public: can be accessed from anywhere
-  
+
+### Java OOP Misc
+- Clone objects
+- Wrapper Class: convert primitive types into objects and from objects into primitive types
+  - convert primitive types into objects to pass in methods by reference
+  - objects are required to convert into streams and perform serialization
+  - only objects can work with synchronization
+  - collection framework only works with objects only
+
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
