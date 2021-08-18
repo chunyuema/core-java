@@ -142,8 +142,10 @@
 - Stream: sequence of data
 - 3 automatically created streams attached with console: System.in; System.out and System.err
 - OutputStream: write data into a destination
-  - FileOutputStream: write data into a file
+  - FileOutputStream: write byte/char data into a file
+  - BufferedOutputStream: improved performance through using a buffer to store data
 - InputStream: read data from a source
+  - FileInputStream: read byte data from a file
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
