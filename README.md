@@ -11,22 +11,6 @@
 - JDK: java development kit, software environment for developing java applications = JRE + compiler javac + archiver 
   jar
 
-## Java String
-- String works the same as Char set
-- String implements Serializable, Comparable and CharSequence interface
-- String, StringBuffer and StringBuilder all implement the CharSequence interface
-- String is immutable: because there could be multiple references on the same pool constant
-- Create String 
-  - String literal: Check the string constant pool; if present, return reference, if not, create new instance
-  - Through new keyword: JVM creates new object on heap; literal put in the constant pool
-  - Create string using literals is faster than new keyword: instances are not created all the time
-- String concatenation: 
-  - Use +: use StringBuilder (or StringBuffer) class and its append method
-  - Use concat()
-- Mutable String: a string that is modifiable 
-  - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
-  - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
-
 ## Java Object-Oriented Programming
 ### Java Object Class
 - object: entity with state and behaviors
@@ -136,6 +120,30 @@
   - only objects can work with synchronization
   - collection framework only works with objects only
 
+## Java String
+- String works the same as Char set
+- String implements Serializable, Comparable and CharSequence interface
+- String, StringBuffer and StringBuilder all implement the CharSequence interface
+- String is immutable: because there could be multiple references on the same pool constant
+- Create String
+  - String literal: Check the string constant pool; if present, return reference, if not, create new instance
+  - Through new keyword: JVM creates new object on heap; literal put in the constant pool
+  - Create string using literals is faster than new keyword: instances are not created all the time
+- String concatenation:
+  - Use +: use StringBuilder (or StringBuffer) class and its append method
+  - Use concat()
+- Mutable String: a string that is modifiable
+  - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
+  - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
+  
+## Java Array
+
+## Java I/O
+- Stream: sequence of data
+- 3 automatically created streams attached with console: System.in; System.out and System.err
+- OutputStream: write data into a destination
+  - FileOutputStream: write data into a file
+- InputStream: read data from a source
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
