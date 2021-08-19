@@ -146,6 +146,7 @@
   - BufferedOutputStream: improved performance through using a buffer to store data
 - InputStream: read data from a source
   - FileInputStream: read byte data from a file
+  - BufferedInputStream: improved performance through using a buffer to store data
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
