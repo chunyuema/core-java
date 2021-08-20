@@ -145,7 +145,8 @@
   - FileOutputStream: write byte/char data into a file
   - BufferedOutputStream: improved performance through using a buffer to store data
   - ByteArrayOutputStream: write common data into multiple files; data written into byte array, which can be sent to 
-    multiple streams later 
+    multiple streams later
+  - DataOutputStream: write java primitive types in a machine independent way
 - InputStream: read data from a source
   - FileInputStream: read byte data from a file
   - BufferedInputStream: improved performance through using a buffer to store data
