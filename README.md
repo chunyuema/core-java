@@ -157,6 +157,7 @@
   - BufferedWriter: provide buffer for the writer instance to improve the performance
   - CharArrayWriter: used to write common data to multiple files
 - Reader: abstract class for reading character streams
+- Console: used to get input from console; System.console() available for certain IDEs
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
