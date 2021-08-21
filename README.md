@@ -154,7 +154,8 @@
   - ByteArrayInputStream: read byte array as the input as a stream
 - Writer: abstract class for writing to character streams 
   - FileWriter: write character oriented data to file
-  - BufferedWriter: provide buffer for the writter instance to improve the performance
+  - BufferedWriter: provide buffer for the writer instance to improve the performance
+  - CharArrayWriter: used to write common data to multiple files
 - Reader: abstract class for reading character streams
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
