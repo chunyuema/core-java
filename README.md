@@ -265,12 +265,18 @@
     - WeakHashMap: extends AbstractMap to use a hashtable with weak keys
     - IdentityHashMap: extends AbstractMap to use reference equality when comparing documents
 - Iteration of Collection:
-  - Use iterator: lightweight object; iterate through collection without the need to understand how the 
+  - Java defines parameterized interface Iterable, which has a single method iterator(): return an iterator of the
+    elements in the collection
+      - Iterator: a software design pattern that abstracts the process of the scanning through the elements.
+        - Snapshot Iterator: make a copy of the original ds, require additional time and auxiliary space
+        - Lazy Iterator: does not make an upfront copy, not stable if the ds is changed before iteration finishes
+  - Method One using iterator: lightweight object; iterate through collection without the need to understand how the 
     data structure is implemented
     - iterator: only traverse forward; for all collection classes
     - list iterator: allow traverse forward and backwards; only for list classes; allow modification of array items
     - spliterator: parallel iteration of portions of the sequences
-  - Use forEach: for can cycle through any collection of objects that implement Iterable interface
+  - Method Two using forEach: for can cycle through any collection of objects that implement Iterable interface
+    - Iterator is the key that supports the forEach looping
 - Collection Algorithm: 
   - static method of the Collections class; can be applied to collections and map
   - checkedCollection ensures type safety of the collection
@@ -286,7 +292,7 @@
       - Properties: a subclass of Hashtable; String key and String values
 - Collection is an interface; Collections is a utility class which defines utility methods that can be used on 
   collection; Collections only contain static methods
-  
+
 ## Java Util: utility classes: 
 - StringTokenizer: implement the Enumberation interface, tokenize a string based on delimiter
 - BitSet: creates a special type of array that holds bit values in the form of boolean values; all bits are 
