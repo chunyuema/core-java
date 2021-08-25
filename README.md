@@ -268,8 +268,10 @@
   - Java defines parameterized interface Iterable, which has a single method iterator(): return an iterator of the
     elements in the collection
       - Iterator: a software design pattern that abstracts the process of the scanning through the elements.
-        - Snapshot Iterator: make a copy of the original ds, require additional time and auxiliary space
-        - Lazy Iterator: does not make an upfront copy, not stable if the ds is changed before iteration finishes
+        - Snapshot Iterator: make a copy of the original ds, require additional time and auxiliary space (Fail Safe 
+          Iterator uses the idea of snap shot iterator)
+        - Lazy Iterator: does not make an upfront copy, not stable if the ds is changed before iteration finishes 
+          (Fail Fast iterator uses the idea of lazy iterator and work on the original ds)
   - Method One using iterator: lightweight object; iterate through collection without the need to understand how the 
     data structure is implemented
     - iterator: only traverse forward; for all collection classes
