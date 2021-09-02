@@ -12,6 +12,14 @@ public class BasicGenericMethodDemo {
         String name = methodGeneric.getName("Alex");
         Integer integer = methodGeneric.getName(456456);
         System.out.println(name + ", " + integer);
+
+        MethodGeneric.setFlag("What?");
+        MethodGeneric.setFlag(123456);
+
+        String flag = MethodGeneric.getFlag("If?");
+        System.out.println(flag);
+        Integer flag1 = MethodGeneric.getFlag(123);
+        System.out.println(flag1);
     }
 }
 
@@ -27,5 +35,11 @@ class MethodGeneric {
         return name;
     }
 
+    public static <T> void setFlag(T flag){
+        System.out.println(flag);
+    }
 
+    public static <T> T getFlag(T flag){
+        return flag;
+    }
 }
