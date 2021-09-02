@@ -20,6 +20,11 @@ public class BasicGenericMethodDemo {
         System.out.println(flag);
         Integer flag1 = MethodGeneric.getFlag(123);
         System.out.println(flag1);
+
+        String[] strings = new String[]{"a", "b", "c"};
+        Integer[] integers = new Integer[]{1, 2, 4};
+        methodGeneric.demoMethod(strings);
+        methodGeneric.demoMethod(integers);
     }
 }
 
@@ -41,5 +46,11 @@ class MethodGeneric {
 
     public static <T> T getFlag(T flag){
         return flag;
+    }
+
+    public <T> void demoMethod(T...args){
+        for (T t : args){
+            System.out.println(t);
+        }
     }
 }
