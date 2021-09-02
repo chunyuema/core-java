@@ -15,13 +15,13 @@ public class GenericWildcardDemo {
 
         Generic<String> generic2 = new Generic<>();
         generic2.setFlag("Chunyue");
-        showMsg.showFlag(generic2);
+        // showMsg.showFlag(generic2);
     }
 }
 
 class ShowMsg {
     // support any types in the generic
-    public void showFlag(Generic<?> generic){
+    public void showFlag(Generic<? extends Number> generic){
         System.out.println(generic.getFlag());
     }
 }
