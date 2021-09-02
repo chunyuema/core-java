@@ -1,6 +1,6 @@
 package com.chunyue.generics;
 
-public class BasicGenericsDemo<T> {
+public class BasicGenericClassDemo<T> {
     public static void main(String[] args) {
         Generic<String> generic = new Generic<>();
         generic.setFlag("admin");
