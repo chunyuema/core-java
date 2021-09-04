@@ -6,7 +6,7 @@ public class ArrayCreationDemoMain {
     public static void main(String[] args) {
         // staticCreation();
         // dynamicCreation();
-        arrayProperties();
+        // arrayProperties();
     }
 
     // demo code for static creation of array

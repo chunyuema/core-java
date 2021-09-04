@@ -156,10 +156,17 @@
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
   
 ## Java Array
-- Array is a reference type
+- Array is a reference type, it is not a primitive type
 - Creation of array: 
-  - static creation; initialize with the exact elements of the array when declare
-  - dynamic creation; initialize with number of elements; but not the exact elements
+  - Static creation; initialize with the exact elements of the array when declare
+  - Dynamic creation; initialize with number of elements; but not the exact elements
+- Arrays are stored on the heap (it is an object), using a continuous chunk of memory
+  - The variable referring to the array is stored on the stack with the value equal to the address of the first 
+    element in the array
+  - Hence, arrays take two memory blocks at least, one on heap and one on stack
+- Arrays length is fixed once created; elements can be modified
+  - Look up based on indexing is O(1); Add/Remove element is O(N)
+
 ## Java I/O
 - Stream: sequence of data
 - 3 automatically created streams attached with console: System.in; System.out and System.err
@@ -180,6 +187,7 @@
   - CharArrayWriter: used to write common data to multiple files
 - Reader: abstract class for reading character streams
 - Console: used to get input from console; System.console() available for certain IDEs
+
 ## Java Exception Handling
 - Exception: event / object thrown at runtime to handle runtime errors
 - Exception handling ensures the normal flow of the application
@@ -240,7 +248,7 @@
   - java.lang.management: management support for JVM and execution environment
   - java.lang.ref: provide flexible control over garbage collection / references to an object
   - java.lang.reflect: provide ability to access field, constructors, methods and modifier of a class
-  
+
 ## Java Util: Collection Framework
 - Generics: explicitly specify the type of data stored in the collection; increase in type safety and reduce
   run-time type mismatch errors
