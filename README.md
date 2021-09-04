@@ -156,7 +156,10 @@
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
   
 ## Java Array
-
+- Array is a reference type
+- Creation of array: 
+  - static creation; initialize with the exact elements of the array when declare
+  - dynamic creation; initialize with number of elements; but not the exact elements
 ## Java I/O
 - Stream: sequence of data
 - 3 automatically created streams attached with console: System.in; System.out and System.err
