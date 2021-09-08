@@ -135,6 +135,22 @@
   - Protected: only available in the package or outside the package through child class
   - Public: can be accessed from anywhere
 
+### Java Package and Import
+- inverse string of the domain name of companies (avoid repetition)
+- package name appears as the first line of the code
+- import JDK packages: 
+  - java.lang: core package 
+  - java.awt: window, gui 
+  - java.net: networking 
+  - java.io: input output 
+  - java.util: utility such as collections
+- import is used to import
+  - import package.classname: import a specific class
+  - import package.*: import every class from the package
+    - slow down compilation speed but not running speed
+  - if same name for imported classes: specify the full package name
+- static import: used to import the static property and method of a class
+
 ### Java OOP Misc
 - Clone objects
 - Wrapper Class: convert primitive types into objects and from objects into primitive types
