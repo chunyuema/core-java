@@ -29,6 +29,10 @@
   - Analyze the bytecode, interprets the code and execute it
 - JDK: java development kit, software environment for developing java applications = JRE + compiler javac + archiver 
   jar
+- Variable: 
+  - local variable: created on the stack when a function is called
+  - instance variable: defined on the instance level; associated with objects
+  - static variable: defined on the class; associated with the class defined
 
 ## Java Object-Oriented Programming
 ### Java Object Class
@@ -41,15 +45,15 @@
   - constructor overloading: provide different ways to create objects with different parameters
   - return type of constructor: current class instance
 - static keyword: 
+  - static is defined on the class level, it has no access to non-static stuff since there is no object associated
   - static variable: common variable shared by all the instances of the class; memory efficient
   - static method: method belongs the class; can be invoked without creating an instance; can access static variable
   - static block: initialized static data member; executed before main method; main() is required to run a java program
 - this keyword: 
-  - used to refer to the class instance variable
+  - used to refer to the class instance variable; refer to the address of the object created
   - used to invoke the current class method (added automatically by compiler if absent)
   - used to invoke the current class constructor (constructor chaining and reuse of constructor calls)
   - can be passed in as an argument (used in event handling)
-  - can be used in the constructor call 
   - can be used to return an instance of the current class
 - equals(): by default compares if two objects are stored at the same memory location
 - hashcode: an integer associated with every object in java
