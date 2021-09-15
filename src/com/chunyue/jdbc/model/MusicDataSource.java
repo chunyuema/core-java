@@ -1,8 +1,9 @@
 package com.chunyue.jdbc.model;
 // the java sql driver has to be present
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MusicDataSource {
     public static final String DB_NAME = "music.db";
@@ -46,4 +47,20 @@ public class MusicDataSource {
         }
     }
 
+    public List<Artist> queryArtists(){
+        try (Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM " + TABLE_ARTISTS);) {
+            List<Artist> artists = new ArrayList<>();
+            while (resultSet.next()) {
+                Artist artist = new Artist();
+                artist.setId(resultSet.getInt(COLUMN_ARTISTS_ID));
+                artist.setName(resultSet.getString(COLUMN_ARTISTS_NAME));
+                artists.add(artist);
+            }
+            return artists;
+        } catch(SQLException e) {
+            System.out.println("Query Failed: " + e.getMessage());
+            return null;
+        }
+    }
 }
