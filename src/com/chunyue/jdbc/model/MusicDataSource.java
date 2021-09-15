@@ -1,5 +1,5 @@
-package com.chunyue.jdbc;
-
+package com.chunyue.jdbc.model;
+// the java sql driver has to be present
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,6 +8,7 @@ public class MusicDataSource {
     public static final String DB_NAME = "music.db";
     public static final String CONNECTION = "jdbc:sqlite:/Users/chunyuema/desktop/developer/" + DB_NAME;
 
+    // create the table and the columns
     public static final String TABLE_ALBUMS = "albums";
     public static final String COLUMN_ALBUM_ID = "_id";
     public static final String COLUMN_ALBUM_NAME = "name";
@@ -24,6 +25,7 @@ public class MusicDataSource {
 
     private Connection connection;
 
+    // open the connection to the DB
     public boolean open(){
         try {
             connection = DriverManager.getConnection(CONNECTION);
@@ -43,4 +45,5 @@ public class MusicDataSource {
             System.out.println("Could not close the connection: " +  e.getMessage());
         }
     }
+
 }
