@@ -13,7 +13,7 @@ public class TestMusicDBDemoMain {
             System.out.println("Cannot open music data source");
             return;
         }
-        List<Artist> artistList = dataSource.queryArtists();
+        List<Artist> artistList = dataSource.queryArtists(MusicDataSource.ORDER_BY_ASC);
         if (artistList == null){
             System.out.println("No artists");
             return;
