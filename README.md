@@ -34,6 +34,31 @@
   - instance variable: defined on the instance level; associated with objects
   - static variable: defined on the class; associated with the class defined
 
+## Java String
+- String: immutable; cannot change individual characters in the string
+  - String has to be edited through substring and concatenation; hence less efficient
+  - However, since it is immutable, String can be used as shared resources by the compiler
+    - There could be multiple references on the same pool constant
+- When creating string with string literal:
+  - JVM check the string constant pool; if present, return reference, if not create new String instance
+- Create string using literals is faster than new keyword: instances are not created all the time
+- When creating string with new keyword:
+  - Through new keyword: JVM creates new object on heap; literal put in the constant pool
+- Testing Strings for equality: always use "hi".equals(str)
+  - == tests if two strings are at the same location only
+- Strings are implemented as a sequence of char values
+- String API contains more than 50 methods that can be called on the strings
+- String implements Serializable, Comparable and CharSequence interface
+- String, StringBuffer and StringBuilder all implement the CharSequence interface
+- String concatenation:
+  - Use +: Concatenation of Strings will create a new String object: time-consuming and use extra memory
+  - Use StringBuilder (or StringBuffer) class and its append method
+    - After concatenating the string, call toString() method to return a string
+  - Use concat()
+- Mutable String: a string that is modifiable
+  - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
+  - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
+  
 ## Java Object-Oriented Programming
 ### Java Object Class
 - object: entity with state and behaviors
@@ -158,22 +183,6 @@
   - objects are required to convert into streams and perform serialization
   - only objects can work with synchronization
   - collection framework only works with objects only
-
-## Java String
-- String works the same as Char set
-- String implements Serializable, Comparable and CharSequence interface
-- String, StringBuffer and StringBuilder all implement the CharSequence interface
-- String is immutable: because there could be multiple references on the same pool constant
-- Create String
-  - String literal: Check the string constant pool; if present, return reference, if not, create new instance
-  - Through new keyword: JVM creates new object on heap; literal put in the constant pool
-  - Create string using literals is faster than new keyword: instances are not created all the time
-- String concatenation:
-  - Use +: use StringBuilder (or StringBuffer) class and its append method
-  - Use concat()
-- Mutable String: a string that is modifiable
-  - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
-  - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
   
 ## Java Array
 - Array is a reference type, it is not a primitive type

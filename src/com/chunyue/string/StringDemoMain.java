@@ -9,8 +9,9 @@ public class StringDemoMain {
         // stringComparison();
         // stringConcatenation();
         // subString();
-        stringToIntegerConversion();
-        integerToStringConversion();
+        // stringToIntegerConversion();
+        // integerToStringConversion();
+        emptyVSNullString();
     }
 
     public static void createString(){
@@ -71,6 +72,11 @@ public class StringDemoMain {
         System.out.println("Add 100 to Integer 200: " + (i+100));
         // using the valueOf method
         System.out.println("Add 150 to Integer 200: " + (Integer.valueOf(s) + 150));
+    }
+
+    public static void emptyVSNullString(){
+        String str = "";
+        System.out.println("Is str null: " + (str == null));
     }
 
     public static void integerToStringConversion(){
