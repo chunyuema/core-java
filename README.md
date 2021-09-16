@@ -59,6 +59,9 @@
   - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
   
+## Java Scanner: 
+- Scanner can be used to read input
+- printf function can be used to format the output; allow setting flags as well
 ## Java Object-Oriented Programming
 ### Java Object Class
 - object: entity with state and behaviors
