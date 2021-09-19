@@ -58,7 +58,22 @@
 - Mutable String: a string that is modifiable
   - StringBuffer: mutable string, synchronized, faster than string for concatenation, does not override equals
   - StringBuilder: mutable string, non-synchronized, faster than string buffer, not thread safe
-  
+
+## Java Array
+- Array is a reference type, it is not a primitive type
+- Creation of array:
+  - Static creation; initialize with the exact elements of the array when declare
+  - Dynamic creation; initialize with number of elements; but not the exact elements
+- Arrays are stored on the heap (it is an object), using a continuous chunk of memory
+  - The variable referring to the array is stored on the stack with the value equal to the address of the first
+    element in the array
+  - Hence, arrays take two memory blocks at least, one on heap and one on stack
+- Arrays length is fixed once created; elements can be modified
+  - Look up based on indexing is O(1); Add/Remove element is O(N)
+- String[] args: command line parameters -> java Program -parameter1 parameter2 parameter3
+- Static method defined on Arrays Class: 
+  - Arrays.sort() implements a tuned version of quick sort
+  - Arrays.binarySearch: binary search
 ## Java Scanner: 
 - Scanner can be used to read input
 - printf function can be used to format the output; allow setting flags as well
@@ -187,18 +202,6 @@
   - only objects can work with synchronization
   - collection framework only works with objects only
   
-## Java Array
-- Array is a reference type, it is not a primitive type
-- Creation of array: 
-  - Static creation; initialize with the exact elements of the array when declare
-  - Dynamic creation; initialize with number of elements; but not the exact elements
-- Arrays are stored on the heap (it is an object), using a continuous chunk of memory
-  - The variable referring to the array is stored on the stack with the value equal to the address of the first 
-    element in the array
-  - Hence, arrays take two memory blocks at least, one on heap and one on stack
-- Arrays length is fixed once created; elements can be modified
-  - Look up based on indexing is O(1); Add/Remove element is O(N)
-
 ## Java I/O
 - Stream: sequence of data
 - 3 automatically created streams attached with console: System.in; System.out and System.err

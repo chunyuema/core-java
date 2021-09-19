@@ -22,6 +22,16 @@ public class TestMusicDBDemoMain {
                 System.out.println(artist);
             }
         }
+
+        List<String> albumsForArtist = dataSource.queryAlbumForArtist("Iron Maiden", MusicDataSource.ORDER_BY_ASC);
+        if (albumsForArtist != null){
+            System.out.println(albumsForArtist);
+            for (String album : albumsForArtist){
+                System.out.println(album);
+            }
+        } else {
+            System.out.println("No albums");
+        }
         dataSource.close();
     }
 }
