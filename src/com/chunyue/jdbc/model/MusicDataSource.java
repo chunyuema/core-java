@@ -143,6 +143,7 @@ public class MusicDataSource {
         }
     }
 
+    // needs debugging
     public List<SongArtist> queryArtistForSong(String songName, int sortOrder){
         StringBuilder sb = new StringBuilder(QUERY_ARTIST_FOR_SONG_START);
         sb.append(songName);
@@ -186,6 +187,30 @@ public class MusicDataSource {
             }
         } catch (SQLException e){
             System.out.println("Could not get meta data for the songs table");
+        }
+    }
+
+    public int getCount(String table){
+        String sql = "SELECT COUNT(*) FROM " + table;
+        try (Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)){
+            int count = resultSet.getInt(1);
+            return count;
+        } catch (SQLException e){
+            System.out.println("Failed to calculate the count: " + e.getMessage());
+            return -1;
+        }
+    }
+
+    public void getCountAndMin(String table){
+        String sql = "SELECT COUNT(*) AS count, MIN(_id) AS min_id FROM " + table;
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)){
+            int count = resultSet.getInt("count");
+            int min_id = resultSet.getInt("min_id");
+            System.out.format("Count = %d and Min_ID = %d\n", count, min_id);
+        } catch (SQLException e){
+            System.out.println("Failed to calculate the count: " + e.getMessage());
         }
     }
 }

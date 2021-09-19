@@ -43,7 +43,20 @@ public class TestMusicDBDemoMain {
 //        }
 
 
-        dataSource.querySongsMetaData();
+        // dataSource.querySongsMetaData();
+
+        useSingleSQLFunctionDemo(dataSource);
+        useMultipleSQLFunctionsDemo(dataSource);
+
         dataSource.close();
+    }
+
+    public static void useSingleSQLFunctionDemo(MusicDataSource dataSource){
+         int count = dataSource.getCount(MusicDataSource.TABLE_SONGS);
+         System.out.println("Number of songs = " + count);
+    }
+
+    public static void useMultipleSQLFunctionsDemo(MusicDataSource dataSource){
+        dataSource.getCountAndMin(MusicDataSource.TABLE_SONGS);
     }
 }
