@@ -45,8 +45,9 @@ public class TestMusicDBDemoMain {
 
         // dataSource.querySongsMetaData();
 
-        useSingleSQLFunctionDemo(dataSource);
-        useMultipleSQLFunctionsDemo(dataSource);
+        // useSingleSQLFunctionDemo(dataSource);
+        // useMultipleSQLFunctionsDemo(dataSource);
+        createViewDemo(dataSource);
 
         dataSource.close();
     }
@@ -58,5 +59,10 @@ public class TestMusicDBDemoMain {
 
     public static void useMultipleSQLFunctionsDemo(MusicDataSource dataSource){
         dataSource.getCountAndMin(MusicDataSource.TABLE_SONGS);
+    }
+
+    // create the view using jdbc
+    public static void createViewDemo(MusicDataSource dataSource){
+        dataSource.createViewForSongArtist();
     }
 }
