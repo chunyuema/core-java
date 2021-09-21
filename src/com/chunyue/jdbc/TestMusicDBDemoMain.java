@@ -1,6 +1,11 @@
 package com.chunyue.jdbc;
 
+import com.chunyue.jdbc.model.Artist;
 import com.chunyue.jdbc.model.MusicDataSource;
+import com.chunyue.jdbc.model.SongArtist;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestMusicDBDemoMain {
     public static void main(String[] args) {
@@ -11,45 +16,40 @@ public class TestMusicDBDemoMain {
             return;
         }
 
-        // query a list of artists
-//        List<Artist> artistList = dataSource.queryArtists(MusicDataSource.ORDER_BY_ASC);
-//        if (artistList == null){
-//            System.out.println("No artists");
-//            return;
-//        } else {
-//            for (Artist artist : artistList){
-//                System.out.println(artist);
-//            }
-//        }
-
-        // query the albums based on an artist
-//        List<String> albumsForArtist = dataSource.queryAlbumForArtist("Pink Floyd", MusicDataSource.ORDER_BY_DESC);
-//        if (albumsForArtist != null){
-//            for (String album : albumsForArtist){
-//                System.out.println(album);
-//            }
-//        } else {
-//            System.out.println("No albums found for this artist");
-//        }
-//
-//        List<SongArtist> songArtistList = dataSource.queryArtistForSong("Go Your Own Way",
-//                MusicDataSource.ORDER_BY_ASC);
-//        if (songArtistList == null){
-//            System.out.println("Could not find the artist for the song");
-//            return;
-//        }
-//        for (SongArtist artist : songArtistList){
-//            System.out.println(artist);
-//        }
-
-
+        // queryAllArtists(dataSource);
+        queryAlbumWithArtist(dataSource, "Vladimir Vysotsky");
         // dataSource.querySongsMetaData();
-
         // useSingleSQLFunctionDemo(dataSource);
         // useMultipleSQLFunctionsDemo(dataSource);
-        createViewDemo(dataSource);
+        // createViewDemo(dataSource);
+        // querySongInfoViewDemo(dataSource, "Go Your Own Way");
+        // querySongInfoViewDemo(dataSource, "She's On Fire");
 
         dataSource.close();
+    }
+
+    public static void queryAllArtists(MusicDataSource dataSource){
+        // query a list of artists
+        List<Artist> artistList = dataSource.queryArtists(MusicDataSource.ORDER_BY_ASC);
+        if (artistList.isEmpty()){
+            System.out.println("No artists found from the database");
+        } else {
+            for (Artist artist : artistList){
+                System.out.println(artist);
+            }
+        }
+    }
+
+    public static void queryAlbumWithArtist(MusicDataSource dataSource, String artistName){
+        // query the albums based on an artist
+        List<String> albumsForArtist = dataSource.queryAlbumForArtist(artistName, MusicDataSource.ORDER_BY_DESC);
+        if (albumsForArtist != null){
+            for (String album : albumsForArtist){
+                System.out.println("Album Name: " + album);
+            }
+        } else {
+            System.out.println("No albums found for this artist");
+        }
     }
 
     public static void useSingleSQLFunctionDemo(MusicDataSource dataSource){
@@ -64,5 +64,18 @@ public class TestMusicDBDemoMain {
     // create the view using jdbc
     public static void createViewDemo(MusicDataSource dataSource){
         dataSource.createViewForSongArtist();
+    }
+
+    // query the view using jdbc
+    public static void querySongInfoViewDemo(MusicDataSource dataSource, String title){
+        List<SongArtist> songArtistList = new ArrayList<>();
+        songArtistList = dataSource.querySongInfoView(title);
+        if (songArtistList.isEmpty()){
+            System.out.println("Didn't find artist matching the song: " + title);
+        } else {
+            for (SongArtist songArtist : songArtistList){
+                System.out.println(songArtist);
+            }
+        }
     }
 }
