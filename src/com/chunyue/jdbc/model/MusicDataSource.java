@@ -82,13 +82,19 @@ public class MusicDataSource {
             COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW +
             " WHERE " + COLUMN_SONG_TITLE + " = \"";
 
+    public static final String QUERY_VIEW_SONG_INFO_PREP = "SELECT " + COLUMN_ARTIST_NAME + ", " +
+            COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK + " FROM " + TABLE_ARTIST_SONG_VIEW +
+            " WHERE " + COLUMN_SONG_TITLE + " = ?";
 
     private Connection connection;
+    // create the prepared statement
+    private PreparedStatement querySongInfoView;
 
     // open the connection to the DB
     public boolean open(){
         try {
             connection = DriverManager.getConnection(CONNECTION);
+            querySongInfoView = connection.prepareStatement(QUERY_VIEW_SONG_INFO_PREP);
             return true;
         } catch (SQLException e){
             System.out.println("Could not connect to DB: " + e.getMessage());
@@ -98,6 +104,9 @@ public class MusicDataSource {
 
     public void close(){
         try {
+            if (querySongInfoView != null){
+                querySongInfoView.close();
+            }
             if (connection != null){
                 connection.close();
             }
@@ -245,14 +254,10 @@ public class MusicDataSource {
     }
 
     public List<SongArtist> querySongInfoView(String title){
-        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
-        sb.append(title);
-        sb.append("\"");
-
-        System.out.println(sb.toString());
-
-        try (Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sb.toString())){
+        try {
+            // using prepared statement
+            querySongInfoView.setString(1, title);
+            ResultSet resultSet = querySongInfoView.executeQuery();
             List<SongArtist> songArtists = new ArrayList<>();
             while(resultSet.next()){
                 SongArtist songArtist = new SongArtist();
@@ -262,7 +267,7 @@ public class MusicDataSource {
                 songArtists.add(songArtist);
             }
             return songArtists;
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Query of the song info view failed: " + e.getMessage());
             return null;
         }

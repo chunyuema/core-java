@@ -6,6 +6,7 @@ import com.chunyue.jdbc.model.SongArtist;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class TestMusicDBDemoMain {
     public static void main(String[] args) {
@@ -17,13 +18,15 @@ public class TestMusicDBDemoMain {
         }
 
         // queryAllArtists(dataSource);
-        queryAlbumWithArtist(dataSource, "Vladimir Vysotsky");
+        // queryAlbumWithArtist(dataSource, "Vladimir Vysotsky");
         // dataSource.querySongsMetaData();
         // useSingleSQLFunctionDemo(dataSource);
         // useMultipleSQLFunctionsDemo(dataSource);
         // createViewDemo(dataSource);
         // querySongInfoViewDemo(dataSource, "Go Your Own Way");
         // querySongInfoViewDemo(dataSource, "She's On Fire");
+        querySongInfoViewWithUserInputDemo(dataSource);
+
 
         dataSource.close();
     }
@@ -74,6 +77,23 @@ public class TestMusicDBDemoMain {
             System.out.println("Didn't find artist matching the song: " + title);
         } else {
             for (SongArtist songArtist : songArtistList){
+                System.out.println(songArtist);
+            }
+        }
+    }
+
+    // query the view using jdbc with user input
+    // this would leave us to SQL injection attack if we do not use a prepared statement
+    public static void querySongInfoViewWithUserInputDemo(MusicDataSource dataSource){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the title of a song: ");
+        String title = scanner.nextLine();
+        List<SongArtist> songArtists = new ArrayList<>();
+        songArtists = dataSource.querySongInfoView(title);
+        if (songArtists.isEmpty()){
+            System.out.println("Sorry, could not find the artists that match the song");
+        } else {
+            for (SongArtist songArtist : songArtists){
                 System.out.println(songArtist);
             }
         }
