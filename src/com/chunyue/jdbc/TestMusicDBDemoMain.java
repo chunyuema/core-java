@@ -16,7 +16,6 @@ public class TestMusicDBDemoMain {
             System.out.println("Cannot open music data source");
             return;
         }
-
         // queryAllArtists(dataSource);
         // queryAlbumWithArtist(dataSource, "Vladimir Vysotsky");
         // dataSource.querySongsMetaData();
@@ -25,9 +24,8 @@ public class TestMusicDBDemoMain {
         // createViewDemo(dataSource);
         // querySongInfoViewDemo(dataSource, "Go Your Own Way");
         // querySongInfoViewDemo(dataSource, "She's On Fire");
-        querySongInfoViewWithUserInputDemo(dataSource);
-
-
+        // querySongInfoViewWithUserInputDemo(dataSource);
+        // addSongsDemo(dataSource);
         dataSource.close();
     }
 
@@ -97,5 +95,10 @@ public class TestMusicDBDemoMain {
                 System.out.println(songArtist);
             }
         }
+    }
+
+    public static void addSongsDemo(MusicDataSource dataSource){
+        dataSource.insertSongs("Touch of Grey", "Grateful Dead", "In The Dark", 1);
+        dataSource.insertSongs("Like A Rolling Stone", "Bob Dylan", "Greatest Hits", 5);
     }
 }
