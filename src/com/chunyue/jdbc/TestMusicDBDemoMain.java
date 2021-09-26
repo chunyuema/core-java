@@ -25,7 +25,7 @@ public class TestMusicDBDemoMain {
         // querySongInfoViewDemo(dataSource, "Go Your Own Way");
         // querySongInfoViewDemo(dataSource, "She's On Fire");
         // querySongInfoViewWithUserInputDemo(dataSource);
-        // addSongsDemo(dataSource);
+        addSongsDemo(dataSource);
         dataSource.close();
     }
 
@@ -97,8 +97,10 @@ public class TestMusicDBDemoMain {
         }
     }
 
+    // adding songs with transactions
     public static void addSongsDemo(MusicDataSource dataSource){
         dataSource.insertSongs("Touch of Grey", "Grateful Dead", "In The Dark", 1);
         dataSource.insertSongs("Like A Rolling Stone", "Bob Dylan", "Greatest Hits", 5);
+        dataSource.insertSongs("Yesterday", "Chunyue", "Chunyue's Greatest Hits", 7);
     }
 }

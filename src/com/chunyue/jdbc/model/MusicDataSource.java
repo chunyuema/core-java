@@ -357,7 +357,9 @@ public class MusicDataSource {
             } else {
                 throw new SQLException("The song insert failed");
             }
-        } catch (SQLException e){
+        }
+        // should catch all exceptions instead of just SQL exceptions
+        catch (Exception e){
             System.out.println("Insert song exception: " + e.getMessage());
             try {
                 // roll back if something goes wrong
