@@ -5,37 +5,44 @@ import com.chunyue.collection.comparator.LastDigitComparator;
 import java.util.*;
 
 public class ArrayListDemoMain {
-    public static void main(String[] args) {
-        // List interface extends the Collection interface
-        List<Integer> values = new ArrayList<>();
+    private static List<Integer> values = new ArrayList<>();
 
+    public static void isEmptyAndSizeDemo(){
         // Check ArrayList empty
         System.out.println(values.isEmpty());
-
         values.add(36);
         values.add(44);
         values.add(55);
-        // Not possible with collection interface
-        values.add(2, 567);
+        values.add(2, 567); // adding at certain index
         System.out.println(values);
-
-        // Get the size of the ArrayList
         System.out.println(values.size());
+    }
 
-        // Iterating through the array list
-        Iterator<Integer> itrator = values.iterator();
+    // iterator() method returns the iterator
+    public static void iterationWithIterator(){
+        List<String> names = new ArrayList<>();
+        names.add("Chunyue");
+        names.add("Chunyue01");
+        names.add("Chunyue02");
+        Iterator<String> itrator = names.iterator();
         while (itrator.hasNext()){
             System.out.println("The item is: " + itrator.next());
         }
+
+        List<Integer> values = new ArrayList<>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
 
         // Iterating using listIterator
         ListIterator<Integer> listIterator = values.listIterator();
         while (listIterator.hasNext()){
             int num = listIterator.next();
             System.out.println("The item is: " + num);
-            System.out.println("Multiplying 10: ");
+            System.out.println("Multiplying 10 right now.....");
             listIterator.set(num * 10);
         }
+
         while (listIterator.hasPrevious()){
             System.out.println("Iterating backwards with item: " + listIterator.previous());
         }
@@ -44,12 +51,37 @@ public class ArrayListDemoMain {
         for (Integer i: values){
             System.out.println("The number is: " + i);
         }
+    }
 
-        // accessing the elements
-        System.out.println("The value at position 3 is: " + values.get(2));
-        values.set(2, 333);
-        System.out.println("The value at position 3 is: " + values.get(2));
+    // get() and set() method of array
+    public static void getAndSet(){
+        List<Integer> values = new ArrayList<>();
+        values.add(34);
+        values.add(22);
+        values.add(46);
+        System.out.println("Getting using get(): " + values.get(2));
+        System.out.println("Setting using set(): " + values.set(2, 555));
+        System.out.println("Getting again after setting: " + values.get(2));
+    }
 
+    // sorting of array list using Collections.sort()
+    public static void sortingArrayList(){
+        List<String> names = new ArrayList<>();
+        names.add("Chunyue");
+        names.add("Tracy");
+        names.add("Crystal");
+        System.out.println("Before sorting: " + names);
+        Collections.sort(names);
+        System.out.println("After sorting: " + names);
+        Collections.reverse(names);
+        System.out.println("Reverse the sorted array: " + names);
+    }
+
+    public static void main(String[] args) {
+        // isEmptyAndSizeDemo();
+        // iterationWithIterator();
+        // getAndSet();
+        sortingArrayList();
 
         // Not possible is values is a Collection
         // since index does not exist for Collection
