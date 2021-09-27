@@ -290,6 +290,16 @@
 - Autoboxing/unboxing: automatically perform boxing of primitive types with the wrapper so that they can be stored
   in the collections
 - Iterable Interface: root interface for all the collection classes; allow for loop and forEach
+- Collection Interface: fundamental interface of the collection classes in Java library; extends the Iterable Interface
+- Iterator Interface: next; hasNext; remove; forEachRemaining
+  - Think of iterator as being between elements
+  - next jumps over the next element and return the reference to the element it has passed
+  - remove function removes the element that was returned by the last call to next
+    ```java
+    Iterator<String> it = c.iterator();
+    it.next(); // first jump to the next element
+    it.remove(); // then remove the element you jumped over
+    ```
 - Interfaces defined by Collection framework:
   - Collection Interface: interface extends Iterable; implemented by all the classes in collection
     framework; all collections can be cycled through by using for each style for loop
@@ -308,6 +318,12 @@
     - List Classes: 
       - ArrayList: implements List interface using a dynamic array
       - LinkedList: implements List, Deque, Queue interface using a doubly linked list
+        - Does not support index based random access with O(1) -> the following code is extremely slow
+          ```java
+          for (int i = 0; i < list.size(); i++){
+                list.get(i);
+          }
+          ```
       - Vector: similar to ArrayList but synchronized; legacy classes made fully compatible with the modern 
         collection framework
         - Stack: a subclass of Vector

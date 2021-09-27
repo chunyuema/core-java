@@ -2,14 +2,20 @@ package com.chunyue.collection.list;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
 
 public class LinkedListDemoMain {
     public static void main(String[] args) {
         // addToLinkedList();
         // removeFromLinkedList();
-        iterateLinkedList();
+        findingIndexFromLinkedList();
+        // iterateLinkedList();
+        // addElementUsingIteratorDemo();
+        // setElementUsingIteratorDemo();
     }
 
+    // add method
     public static void addToLinkedList(){
         LinkedList<String> values = new LinkedList<>();
         // ============================================
@@ -41,6 +47,7 @@ public class LinkedListDemoMain {
         }
     }
 
+    // remove method
     public static void removeFromLinkedList(){
         LinkedList<String> names = new LinkedList<>();
         names.add("Ravi");
@@ -78,6 +85,18 @@ public class LinkedListDemoMain {
         System.out.println("clear everything: " + names);
     }
 
+    // indexOf and lastIndexOf method
+    public static void findingIndexFromLinkedList(){
+        List<String> names = new LinkedList<>();
+        names.add("Amy");
+        names.add("Logan");
+        names.add("Chunyue");
+        names.add("Chunyue");
+        names.add("Juliet");
+        System.out.println(names.indexOf("Chunyue"));
+        System.out.println(names.lastIndexOf("Chunyue"));
+    }
+
     public static void iterateLinkedList(){
         LinkedList<Integer> numbers = new LinkedList<>();
         numbers.add(9);
@@ -104,5 +123,27 @@ public class LinkedListDemoMain {
         }
 
 
+    }
+
+    public static void addElementUsingIteratorDemo(){
+        List<String> names = new LinkedList<>();
+        names.add("Amy");
+        names.add("Logan");
+        names.add("Chunyue");
+        ListIterator<String> iterator = names.listIterator();
+        iterator.next(); // skipping the first element
+        iterator.add("Juliet");
+        System.out.println(names);
+    }
+
+    public static void setElementUsingIteratorDemo(){
+        List<String> names = new LinkedList<>();
+        names.add("Amy");
+        names.add("Logan");
+        names.add("Chunyue");
+        ListIterator<String> iterator = names.listIterator();
+        iterator.next();
+        iterator.set("Tony");
+        System.out.println(names);
     }
 }
