@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class HashSetDemoMain {
     public static void main(String[] args) {
-        // Set is an interface
         // HashSet implements Set
         Set<Integer> values = new HashSet<>();
         System.out.println("Adding 6 for the first time: " + values.add(6) + ": " + values);

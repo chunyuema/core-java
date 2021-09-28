@@ -334,8 +334,9 @@
     - Set Classes:
       - HashSet: implements Set interface; use hashtable for storage; cannot be indexed
         - use HashMap for implementation; keys used to store the elements; values are all PRESENT
+      - TreeSet: implements NavigableSet interface with a red-black tree; fast access and retrieval of element
+        - Slower compared to using hash table, but much faster than checking duplicates in array / linked list
       - LinkedHashSet: extends HashSet with linked list; maintain insertion order
-      - TreeSet: implements NavigableSet interface with a tree; fast access and retrieval of element
       - EnumSet: implements Set interface, specifically used for elements of enum type
   - Map Classes: 
     - AbstractMap: implement most of the Map Interface; super class for map implementations
