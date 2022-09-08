@@ -7,6 +7,7 @@ public class SingleDimensionArrayDemoMain {
         // arrayCreation();
         // easyArrayDeclaration();
         // loopThroughArray();
+        functionalArrayTraversal();
         // anonymousArray(new int[]{10, 22, 33, 44});
         // classNameOfArray();
         // copyArray();
@@ -29,11 +30,23 @@ public class SingleDimensionArrayDemoMain {
 
     public static void loopThroughArray(){
         int[] ints = {3, 5, 67, 87, 43};
+        System.out.println("Initial array is: " + Arrays.toString(ints));
         for (int i: ints){
+            i = i + 1;
             System.out.println("Current integer is:  " + i);
         }
+        System.out.println("Enhanced for loop does not affect original array: " + Arrays.toString(ints));
+
+        for (int i = 0; i < ints.length; i++){
+            ints[i] += 1;
+        }
+        System.out.println("Use regular for loop to affect the original array: " + Arrays.toString(ints));
     }
 
+    public static void functionalArrayTraversal(){
+        int[] ints = {1, 2, 3, 4};
+        Arrays.stream(ints).forEach(System.out::println);
+    }
     public static void anonymousArray(int[] arr){
         System.out.println(Arrays.toString(arr));
     }
