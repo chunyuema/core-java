@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class CollectionsDemoMain {
 
-    private static ArrayList<String> techCompanies = new ArrayList<>();
+    private static final ArrayList<String> techCompanies = new ArrayList<>();
     static {
         techCompanies.add("google");
         techCompanies.add("amazon");
@@ -14,9 +14,11 @@ public class CollectionsDemoMain {
 
     public static void main(String[] args) {
         Collections.addAll(techCompanies, "facebook", "bytedance");
-        System.out.println("use collections to add elements into a target collection: " + techCompanies);
+        System.out.println("add elements into a target collection: " + techCompanies);
         Collections.sort(techCompanies);
-        System.out.println("use collections to sort elements in the target collection: " + techCompanies);
+        System.out.println("sort elements in the target collection: " + techCompanies);
+        Collections.reverse(techCompanies);
+        System.out.println("reverse collection: " + techCompanies);
     }
 }
 
