@@ -13,6 +13,7 @@ public class BufferedReaderDemoMain {
         System.out.println("The default size of the buffer is 8KB");
         // basicBufferReader();
         // usingStringSplit();
+        noScannerBufferedReader();
     }
 
     public static void basicBufferReader(){
@@ -53,6 +54,22 @@ public class BufferedReaderDemoMain {
             e.printStackTrace();
         } finally {
             if (scanner != null) scanner.close();
+        }
+    }
+
+    public static void noScannerBufferedReader(){
+        Map<Integer, String> res = new HashMap<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("./text/file.txt"))){
+            String input;
+            while ((input = br.readLine()) != null){
+                String[] data = input.split(",");
+                int num = Integer.parseInt(data[0]);
+                String description = data[1];
+                res.put(num, description);
+            }
+            System.out.println(res);
+        } catch (IOException e){
+            e.printStackTrace();
         }
     }
 }
