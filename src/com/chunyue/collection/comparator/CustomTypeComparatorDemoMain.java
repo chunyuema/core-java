@@ -18,8 +18,8 @@ public class CustomTypeComparatorDemoMain {
         }
 
         // sort using a customized comparator
-        Collections.sort(students, (s1, s2)->{
-            return s1.mark > s2.mark ? -1 : s1.mark < s2.mark ? 1 : 0;
+        students.sort((s1, s2) -> {
+            return Integer.compare(s2.mark, s1.mark);
         });
 
         for(Student s: students){
@@ -80,6 +80,6 @@ class StudentNew implements Comparable<StudentNew>{
 
     @Override
     public int compareTo(StudentNew o) {
-        return this.mark > o.mark ? -1 : this.mark < o.mark ? 1: 0;
+        return Integer.compare(o.mark, this.mark);
     }
 }
