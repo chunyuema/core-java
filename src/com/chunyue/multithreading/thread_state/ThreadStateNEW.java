@@ -1,6 +1,6 @@
 package com.chunyue.multithreading.thread_state;
 
-public class ThreadStateNEWDemoMain {
+public class ThreadStateNEW {
 
     private static void threadInNewState() {
         Thread thread = new Thread(() -> {

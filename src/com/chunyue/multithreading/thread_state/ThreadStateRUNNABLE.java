@@ -1,6 +1,6 @@
 package com.chunyue.multithreading.thread_state;
 
-public class ThreadStateRUNNABLEDemoMain {
+public class ThreadStateRUNNABLE {
 
     private static void threadInRUNNABLEState() {
         Thread thread = new Thread(() -> {
