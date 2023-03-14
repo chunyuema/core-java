@@ -1,6 +1,6 @@
-package com.chunyue.multithreading.synchronizedkeyword;
+package com.chunyue.multithreading.synchronized_keyword;
 
-// SynchronizedCounter extends BasicCounter and add synchronization to the method
+// SynchronizedCounter extends BasicCounter and add synchronization to the instance method
 public class SynchronizedCounter extends BasicCounter {
     private int c = 0;
 

@@ -1,4 +1,4 @@
-package com.chunyue.multithreading.synchronizedkeyword;
+package com.chunyue.multithreading.synchronized_keyword;
 
 public class BasicCounter {
     private int c = 0;
