@@ -84,9 +84,15 @@ public class AccessSynchronization {
         BasicCounter nsc = new BasicCounter();
         synchronizationDemo(nsc);
 
-        // Using a synchronized counter, you make sure to count to 20000
+        // Using a synchronized counter (synchronized instance method), you make sure to
+        // count to 20000
         SynchronizedCounter sc = new SynchronizedCounter();
         synchronizationDemo(sc);
+
+        // Using a synchronized counter (synchronized block), you make sure to count to
+        // 20000
+        SynchronizedBlockCounter sbc = new SynchronizedBlockCounter();
+        synchronizationDemo(sbc);
 
         staticSynchronizationDemo();
     }
