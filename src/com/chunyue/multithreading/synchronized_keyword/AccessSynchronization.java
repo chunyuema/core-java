@@ -1,0 +1,51 @@
+package com.chunyue.multithreading.synchronizedkeyword;
+
+public class AccessSynchronization {
+
+    public static void synchronizationDemo(BasicCounter c) {
+        Thread t1 = new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < 10000; i++) {
+                            // System.out.println("t1 incrementing counter");
+                            c.incrementCount();
+                        }
+                    }
+                });
+
+        Thread t2 = new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < 10000; i++) {
+                            // System.out.println("t2 incrementing counter");
+                            c.incrementCount();
+                        }
+                    }
+                });
+
+        t1.start();
+        t2.start();
+        // Waiting for child threads to finish
+        try {
+            t1.join();
+            t2.join();
+            System.out.println("t1 & t2 finished");
+            System.out.println("final count is: " + c.getCount());
+        } catch (InterruptedException e) {
+            // Handling the exception
+            System.out.println("Interrupted Exception");
+        }
+    }
+
+    public static void main(String[] args) {
+        // Using a nonsynchronized counter, you might not be able to count to 20000
+        BasicCounter nsc = new BasicCounter();
+        synchronizationDemo(nsc);
+
+        // Using a synchronized counter, you make sure to count to 20000
+        SynchronizedCounter sc = new SynchronizedCounter();
+        synchronizationDemo(sc);
+    }
+}
