@@ -1,3 +1,4 @@
+/* Code Adapted From: https://www.geeksforgeeks.org/inter-thread-communication-java/ */
 package com.chunyue.multithreading.thread_communication;
 
 public class WaitAndNotifyDemo {
@@ -54,7 +55,6 @@ public class WaitAndNotifyDemo {
                 notify();
                 System.out.println("Item consumed, incrementing item number");
                 itemNumber++;
-
             }
         }
     }
