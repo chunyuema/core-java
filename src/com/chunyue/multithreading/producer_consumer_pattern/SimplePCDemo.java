@@ -1,4 +1,4 @@
-package com.chunyue.multithreading.thread_state_transition;
+package com.chunyue.multithreading.producer_consumer_pattern;
 
 public class SimpleConsumerProducer {
     public static void main(String[] args) {
