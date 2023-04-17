@@ -1,3 +1,4 @@
+/* Code adapted from: https://tobebetterjavaer.com/io/Serializbale.html#_02%E3%80%81%E5%86%8D%E6%9D%A5%E7%82%B9%E5%AE%9E%E6%88%98 */
 package com.chunyue.inputouput.object_stream;
 
 import java.io.FileInputStream;
