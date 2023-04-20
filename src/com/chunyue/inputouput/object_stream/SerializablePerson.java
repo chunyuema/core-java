@@ -5,21 +5,18 @@ import java.io.Serializable;
 public class SerializablePerson implements Serializable {
     private String name;
     private Integer age;
+    // Using transient can prevent data access after serialization
+    private transient String secret;
 
-    public SerializablePerson(String name, Integer age) {
+    public SerializablePerson(String name, Integer age, String secret) {
         this.name = name;
         this.age = age;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public Integer getAge() {
-        return this.age;
+        this.secret = secret;
     }
 
     public String toString() {
-        return "{ Name: " + this.name + ", Age: " + this.age + " }";
+        return "{ Name: " + this.name +
+                ", Age: " + this.age +
+                ", Secret: " + this.secret + " }";
     }
 }

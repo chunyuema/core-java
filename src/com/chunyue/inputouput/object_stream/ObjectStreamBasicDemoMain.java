@@ -10,6 +10,8 @@ import java.io.ObjectOutputStream;
 public class ObjectStreamBasicDemoMain {
 
     private static void writeSerializabelPerson(SerializablePerson sp, String fileName) {
+        // The secret of this person's information is accessible before serialization
+        System.out.println("Write Person Info: " + sp);
         try {
             FileOutputStream fos = new FileOutputStream(fileName, false);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -24,15 +26,16 @@ public class ObjectStreamBasicDemoMain {
         try (FileInputStream fis = new FileInputStream(fileName);
                 ObjectInputStream ois = new ObjectInputStream(fis)) {
             Object obj = ois.readObject();
+            // The person's secret is not accessible after serialization
             SerializablePerson sp = (SerializablePerson) obj;
-            System.out.println("Person: " + sp);
+            System.out.println("Read Person Info: " + sp);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String args[]) {
-        SerializablePerson sp = new SerializablePerson("Chunyue Ma", 25);
+        SerializablePerson sp = new SerializablePerson("Chunyue Ma", 25, "Chunyue's Secret");
         String fileName = "./personInfo.dat";
         writeSerializabelPerson(sp, fileName);
         readSerializablePerson(fileName);
