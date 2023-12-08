@@ -1,6 +1,7 @@
 package com.chunyue.reflect;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 
 public class ReflectDemo {
 
@@ -43,9 +44,29 @@ public class ReflectDemo {
         System.out.println(dog2);
     }
 
+    private static void getPropertiesAndSetValue() throws Exception {
+        Class clazz = Dog.class;
+        Dog dog = (Dog) clazz.getDeclaredConstructor().newInstance();
+
+        // get public properties => 0 because Dog class does not have public fields
+        System.out.println(clazz.getFields().length);
+
+        // get all properties
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            System.out.println(field.getName());
+            if (field.getName().equals("name")) {
+                field.setAccessible(true);
+                field.set(dog, "Tom");
+            }
+        }
+        System.out.println(dog);
+    }
+
     public static void main(String[] args) throws Exception {
         // getClassDemo();
         // getAllConstructors();
-        createInstances();
+        // createInstances();
+        getPropertiesAndSetValue();
     }
 }
