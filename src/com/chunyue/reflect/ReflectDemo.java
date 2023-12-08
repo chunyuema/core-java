@@ -13,7 +13,14 @@ public class ReflectDemo {
         System.out.println(clazz3);
     }
 
+    private static void getConstructorThroughReflect() throws Exception {
+        Class clazz = Class.forName("com.chunyue.reflect.Dog");
+        Dog dog = (Dog) clazz.getDeclaredConstructor().newInstance();
+        System.out.println(dog);
+    }
+
     public static void main(String[] args) throws Exception {
-        getClassDemo();
+        // getClassDemo();
+        getConstructorThroughReflect();
     }
 }
