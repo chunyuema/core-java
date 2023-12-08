@@ -2,6 +2,7 @@ package com.chunyue.reflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class ReflectDemo {
 
@@ -63,10 +64,33 @@ public class ReflectDemo {
         System.out.println(dog);
     }
 
+    private static void getMethodAndInvoke() throws Exception {
+        Dog dog = new Dog("Ray", 3);
+        Class dogClazz = dog.getClass();
+
+        // Use public method
+        for (Method method : dogClazz.getMethods()) {
+            // System.out.println(method.getName());
+            if (method.getName().equals("bark")) {
+                method.invoke(dog, null);
+            }
+        }
+
+        // Use private method
+        for (Method method : dogClazz.getDeclaredMethods()) {
+            // System.out.println(method.getName());
+            if (method.getName().equals("privateBark")) {
+                method.setAccessible(true);
+                method.invoke(dog, null);
+            }
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         // getClassDemo();
         // getAllConstructors();
         // createInstances();
-        getPropertiesAndSetValue();
+        // getPropertiesAndSetValue();
+        // getMethodAndInvoke();
     }
 }

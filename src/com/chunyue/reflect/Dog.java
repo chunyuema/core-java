@@ -22,4 +22,12 @@ public class Dog {
     public String toString() {
         return "Dog = { name = " + this.name + ", age = " + this.age + " }";
     }
+
+    public void bark() {
+        System.out.println("Woof woof");
+    }
+
+    private void privateBark() {
+        System.out.println("Secret: Woof woof");
+    }
 }
