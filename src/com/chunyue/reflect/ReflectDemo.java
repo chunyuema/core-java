@@ -28,18 +28,24 @@ public class ReflectDemo {
         }
     }
 
-    private static void getConstructorThroughReflect() throws Exception {
+    private static void createInstances() throws Exception {
         Class clazz = Class.forName("com.chunyue.reflect.Dog");
-        Dog dog = (Dog) clazz.getDeclaredConstructor().newInstance();
+
+        // Use *public* argument constructor to create instance
+        Dog dog = (Dog) clazz.getConstructor(String.class, int.class)
+                .newInstance("Ray", 3);
         System.out.println(dog);
 
-        Dog dog2 = (Dog) clazz.getConstructor().newInstance();
+        // If use *private* constructor, need to use getDeclaredConstructors
+        Constructor dogConstructor = clazz.getDeclaredConstructor(String.class);
+        dogConstructor.setAccessible(true);
+        Dog dog2 = (Dog) dogConstructor.newInstance("Ray");
         System.out.println(dog2);
     }
 
     public static void main(String[] args) throws Exception {
         // getClassDemo();
-        // getConstructorThroughReflect();
-        getAllConstructors();
+        // getAllConstructors();
+        createInstances();
     }
 }
