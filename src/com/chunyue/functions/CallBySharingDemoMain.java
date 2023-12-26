@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CallBySharingDemoMain {
-    private static void passByValue(List<Integer> list) {
+    private static void mutateVariableInFunctionBody(List<Integer> list) {
         System.out.println("Inside the function body (before incrementing): " + list);
         list.add(999);
+        System.out.println("Inside the function body (after incrementing): " + list);
+    }
+
+    private static void assignValueInFunctionBody(List<Integer> list) {
+        System.out.println("Inside the function body (before incrementing): " + list);
+        list = new ArrayList<>();
         System.out.println("Inside the function body (after incrementing): " + list);
     }
 
@@ -28,8 +34,14 @@ public class CallBySharingDemoMain {
         list.add(2);
         list.add(3);
 
+        // Mutation of the object will be visible to the caller
         System.out.println("Outside the function body (before invoking): " + list);
-        passByValue(list);
+        mutateVariableInFunctionBody(list);
+        System.out.println("Outside the function body (after invoking): " + list);
+
+        // Assignment will not be visible to the caller
+        System.out.println("Outside the function body (before invoking): " + list);
+        assignValueInFunctionBody(list);
         System.out.println("Outside the function body (after invoking): " + list);
     }
 }
