@@ -10,7 +10,7 @@ public class ArrayCreationDemoMain {
     }
 
     // demo code for static creation of array
-    public static void staticCreation(){
+    private static void staticCreation(){
         int[] grades = {98, 78, 67, 89, 97, 95};
         int[] grades1 = new int[]{98, 78, 76, 89, 79};
         // implicit conversion
@@ -21,14 +21,14 @@ public class ArrayCreationDemoMain {
     }
 
     // demo code for dynamic creation of array
-    public static void dynamicCreation(){
+    private static void dynamicCreation(){
         int[] grades = new int[5];
         grades[1] = 56;
         System.out.println(Arrays.toString(grades));
     }
 
     // indexing & length of the array
-    public static void arrayProperties(){
+    private static void arrayProperties(){
         int[] grades = {23, 4, 5, 66};
         // cast into a double
         double grade = grades[3];
